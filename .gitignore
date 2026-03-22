@@ -1,0 +1,61 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Test / coverage cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local logs
+*.log
+
+# Raw datasets should stay outside this repo
+data/raw/
+
+# Large training artifacts and transient outputs
+outputs/**/checkpoints/
+outputs/**/runs/
+outputs/**/wandb/
+outputs/**/*.pt
+outputs/**/*.pth
+outputs/**/*.ckpt
+outputs/**/*.bin
+outputs/**/*.npy
+outputs/**/*.npz
+outputs/**/*.pkl
+outputs/**/*.joblib
+outputs/**/*.zip
+outputs/**/*.tar
+outputs/**/*.tar.gz
+
+# LaTeX intermediates
+paper/**/*.aux
+paper/**/*.abs
+paper/**/*.blg
+paper/**/*.bbl
+paper/**/*.out
+paper/**/*.fls
+paper/**/*.fdb_latexmk
+paper/**/*.xdv
+paper/**/*.toc
+paper/**/*.synctex.gz
+
+# Generated reviewer packet archives can be rebuilt locally
+paper/submission_ready/cageo_reviewer_code_packet.zip
+paper/submission_ready/cageo_reviewer_code_packet/
+
+# Local archival material should not be published
+_root_cleanup_archive/

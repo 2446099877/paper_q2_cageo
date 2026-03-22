@@ -1,0 +1,17 @@
+\begin{table}[t]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{2pt}
+  \caption{Three-seed mean$\pm$std results under the fixed 20-training and 10-validation images-per-class protocol. $\Delta$OA is measured against the ConvNeXt-Tiny baseline on the same split manifests.}
+  \label{tab:main_results}
+  \begin{tabular}{l >{\raggedright\arraybackslash}p{0.22\textwidth} c c c c}
+    \toprule
+    Dataset & Method & OA & AA & Kappa & $\Delta$OA \\
+    \midrule
+    AID & ConvNeXt-Tiny & 0.9179 $\pm$ 0.0086 & 0.9158 $\pm$ 0.0076 & 0.9150 $\pm$ 0.0089 & -- \\
+    AID & DINOv2-B (Adapter, FT) & 0.9413 $\pm$ 0.0036 & 0.9388 $\pm$ 0.0036 & 0.9392 $\pm$ 0.0037 & +0.0234 \\
+    NWPU & ConvNeXt-Tiny & 0.8721 $\pm$ 0.0116 & 0.8721 $\pm$ 0.0116 & 0.8691 $\pm$ 0.0119 & -- \\
+    NWPU & DINOv2-B (Adapter, FT) & 0.8790 $\pm$ 0.0085 & 0.8790 $\pm$ 0.0085 & 0.8762 $\pm$ 0.0087 & +0.0069 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

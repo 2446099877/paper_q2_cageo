@@ -1,0 +1,53 @@
+base: ../base.yaml
+
+experiment:
+  name: nwpu_low20_dinov2_base
+  run_name: adapter_ft1_nocenter
+
+data:
+  dataset_name: NWPU_RESISC45
+  root: ../data/raw/NWPU_RESISC45
+  image_size: 224
+  train_shots_per_class: 20
+  val_shots_per_class: 10
+  batch_size: 2
+  num_workers: 0
+
+model:
+  backbone: dinov2_base
+  pretrained: true
+  pretrained_model_name: facebook/dinov2-base
+  gradient_checkpointing: true
+  freeze_backbone: true
+  unfreeze_last_n_blocks: 1
+  unfreeze_backbone_norm: true
+  token_pooling: cls
+  dropout: 0.1
+  adapter_dim: 256
+  adapter_dropout: 0.1
+  use_msca: false
+  use_lgfh: false
+  use_agfh: false
+  use_sgfh: false
+  use_cosine: false
+  use_amcc: false
+  use_center_reg: false
+  use_feature_center_reg: false
+  use_proto_reg: false
+  use_proto_calib: false
+
+training:
+  epochs: 60
+  learning_rate: 0.00008
+  weight_decay: 0.01
+  gradient_accumulation_steps: 4
+  label_smoothing: 0.0
+  mixup_alpha: 0.0
+  cutmix_alpha: 0.0
+  mix_probability: 0.0
+  gradient_clip_norm: 1.0
+  patience: 12
+  center_loss_weight: 0.0
+  center_update_momentum: 0.9
+  prototype_loss_weight: 0.0
+  refresh_prototypes_each_epoch: false

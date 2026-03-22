@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated manuscript."
+title: "Reproducible Selective Adaptation of DINOv2 for Scarce-Label Remote Sensing Scene Classification"
+type: software
+authors:
+  - family-names: "Hou"
+    given-names: "Chao"
+license: "MIT"
+keywords:
+  - "remote sensing scene classification"
+  - "geocomputing"
+  - "reproducibility"
+  - "DINOv2"
+  - "scarce-label learning"
+repository-code: "https://github.com/TO_BE_FILLED/TO_BE_FILLED"
+date-released: 2026-03-22

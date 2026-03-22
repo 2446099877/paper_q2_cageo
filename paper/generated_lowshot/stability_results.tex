@@ -1,0 +1,19 @@
+\begin{table}[t]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \caption{OA mean and standard deviation of the full method and the key same-backbone controls. NoAdapter isolates the role of the residual adapter, and NoCenter isolates the contribution of feature-center regularization.}
+  \label{tab:stability_results}
+  \begin{tabular}{l >{\raggedright\arraybackslash}p{0.22\textwidth} c c c}
+    \toprule
+    Dataset & Variant & OA Mean & OA Std & $\Delta$OA vs Full \\
+    \midrule
+    AID & NoAdapter & 0.9416 & 0.0066 & +0.0003 \\
+    AID & NoCenter & 0.9350 & 0.0075 & -0.0063 \\
+    AID & Full setting & 0.9413 & 0.0036 & +0.0000 \\
+    NWPU & NoAdapter & 0.8793 & 0.0112 & +0.0003 \\
+    NWPU & NoCenter & 0.8722 & 0.0056 & -0.0067 \\
+    NWPU & Full setting & 0.8790 & 0.0085 & +0.0000 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

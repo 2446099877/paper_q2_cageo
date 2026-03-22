@@ -1,0 +1,20 @@
+\section{Introduction}
+
+Remote sensing scene classification is a common entry point for geospatial image understanding and supports broader geocomputing workflows such as land-use monitoring, environmental assessment, and spatial decision support~\cite{cheng2017survey,thapa2023review}. In practice, however, many application settings still face a scarcity of labeled samples: collecting and validating aerial or satellite image annotations remains expensive, class boundaries are often ambiguous, and labeled coverage can lag far behind the volume of available imagery. Under such scarce-label conditions, training instability and protocol sensitivity become as important as raw peak accuracy.
+
+This challenge is not only methodological but also computational. Low-shot remote sensing papers often differ in split rules, seed handling, and evaluation scope, which makes it difficult to tell whether a reported gain comes from a robust modeling improvement or from a favorable protocol. For a geocomputing journal, that reproducibility gap matters: readers need a workflow that can be rebuilt, stress-tested, and extended on public data rather than a result that depends on opaque experimental details.
+
+Self-supervised visual pretraining offers a practical path forward. DINOv2~\cite{oquab2023dinov2} provides strong generic representations that can reduce the dependence on large labeled remote sensing datasets. Yet a frozen linear probe is often too weak under strict low-shot protocols, whereas full finetuning of a large transformer can be computationally heavy and unnecessarily unstable when only a few labeled images per class are available.
+
+This paper studies a controlled compromise: reproducible selective adaptation of a strong pretrained backbone. We adopt DINOv2-Base, update only the last transformer block and final normalization, insert a residual adapter, and apply feature-center regularization during training. Just as importantly, we implement this constrained adaptation recipe as a rebuildable workflow component organized around fixed split manifests, multi-seed aggregation, figure-generation scripts, and manuscript-table rebuilding utilities so that the reported evidence can be regenerated rather than re-described. This framing intentionally differs from architecture-centric scene classification papers: our primary contribution is a rebuildable geocomputing workflow with transparent evidence generation, not a claim that a newly designed remote sensing module is universally superior.
+
+The contributions of this work are as follows:
+\begin{itemize}
+  \item We present a reproducible scarce-label remote sensing workflow that combines DINOv2 transfer, selective finetuning, residual adaptation, and feature-center regularization under fixed public-data protocols.
+  \item We establish seed-controlled class-balanced evaluation on AID and NWPU-RESISC45 with 20 training samples and 10 validation samples per class, and we report three-seed averages for all main comparisons.
+  \item We expose the workflow as reusable geocomputing assets, including fixed manifests and scripted regeneration of aggregated tables and figures, so that results can be audited and extended from the same public inputs.
+  \item We provide same-backbone ablations showing that partial finetuning contributes most of the mean gain under the current protocol, while the adapter mainly improves stability and the center regularizer improves consistency.
+  \item We show that the final workflow remains feasible on a commodity 8 GB GPU, which makes large-backbone adaptation more accessible for researchers working under limited hardware budgets.
+\end{itemize}
+
+By emphasizing reproducibility, public assets, and computational feasibility alongside model performance, the study is intended as a practical geocomputing reference rather than a claim of universal superiority across all remote sensing settings. In particular, we treat the smaller NWPU margin as a stress test of workflow robustness under a fixed protocol, not as evidence of a large cross-dataset advantage.

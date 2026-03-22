@@ -1,0 +1,43 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Problem Setup}
+
+Given an input image $x \in \mathbb{R}^{3 \times H \times W}$ and label $y \in \{1, \dots, K\}$, we study low-shot scene classification where each class provides only 20 training samples and 10 validation samples. Let $\phi_{\theta}$ denote the pretrained feature backbone and $f(\cdot)$ the final classifier. Our goal is to learn a stable low-shot decision function $f(\phi_{\theta}(x))$ that generalizes to the remaining test images while updating only a small subset of backbone parameters.
+
+\subsection{Backbone and Selective Finetuning}
+
+We use DINOv2-Base~\cite{oquab2023dinov2} as the feature backbone. Let $\mathbf{T} = [\mathbf{t}_{\text{cls}}, \mathbf{t}_1, \dots, \mathbf{t}_N]$ denote the output tokens of the last transformer layer. We use CLS pooling as the default representation:
+\begin{equation}
+\mathbf{z}_0 = \mathbf{t}_{\text{cls}}.
+\end{equation}
+
+To avoid overfitting and reduce trainable degrees of freedom, we freeze most pretrained parameters and unfreeze only the last transformer block and the final layer normalization. This choice keeps task adaptation close to the pretrained representation while still allowing limited task-specific correction in the final feature stage. In the final configuration, the trainable subset therefore consists of the last transformer block, the final backbone normalization, the adapter parameters, and the classifier head. The selective update policy is combined with gradient checkpointing and gradient accumulation to support 8GB GPU training.
+
+\subsection{Residual Feature Adapter}
+
+On top of $\mathbf{z}_0$, we insert a residual adapter inspired by parameter-efficient transfer~\cite{houlsby2019adapter}. The adapter first normalizes the feature, then applies a bottleneck MLP, and finally adds a scaled residual:
+\begin{equation}
+\mathbf{z}_1 = \mathbf{z}_0 + \alpha \cdot W_2 \, \sigma \left(W_1 \, \text{LN}(\mathbf{z}_0)\right),
+\end{equation}
+where $W_1 \in \mathbb{R}^{d \times r}$, $W_2 \in \mathbb{R}^{r \times d}$, $r \ll d$, $\sigma$ is GELU, and $\alpha$ is a learnable residual scale. We use a bottleneck dimension of $r=256$ in the final model. The adapted embedding is layer-normalized and then fed to the classifier. Because the adapter can be switched on or off independently of partial finetuning, it is also convenient for role-specific ablation.
+
+\subsection{Feature-Center Regularization}
+
+To stabilize low-shot optimization, we maintain class-wise feature centers using momentum updates during training. Let $\bar{\mathbf{h}}_k^{(t)}$ denote the mean normalized feature of class $k$ in mini-batch $t$. For classes present in the current batch, the center is updated as
+\begin{equation}
+\mathbf{c}_k^{(t)} = \text{Norm}\left(\beta \mathbf{c}_k^{(t-1)} + (1-\beta)\bar{\mathbf{h}}_k^{(t)}\right),
+\end{equation}
+where $\text{Norm}(\mathbf{v})=\mathbf{v}/\|\mathbf{v}\|_2$, $\beta$ is the momentum factor (0.9 in the final setting), and inactive classes keep their previous centers unchanged. The centers are initialized to zero and become active only after the corresponding class has been observed at least once. During early training, only classes with valid center history contribute to the regularization term. For a sample embedding $\mathbf{h}_i$ with class label $y_i$, we add an alignment term that pulls normalized features toward their class center:
+\begin{equation}
+\mathcal{L}_{\text{align}} = 1 - \cos(\hat{\mathbf{h}}_i, \hat{\mathbf{c}}_{y_i}).
+\end{equation}
+The final objective is
+\begin{equation}
+\mathcal{L} = \mathcal{L}_{\text{CE}} + \lambda \mathcal{L}_{\text{align}},
+\end{equation}
+where $\lambda$ is a small weight (0.02 in our main setting). The class centers are used only during training regularization; inference still relies only on the adapted embedding and the classifier output.
+
+\subsection{Complexity Perspective}
+
+The proposed route is parameter-efficient in training rather than lightweight in total inference complexity. The full model has 87.0M parameters and about 43.93G FLOPs, while only about 7.5M parameters are updated. In practice, the final DINOv2 configuration is trained on a single RTX 4060 Ti 8GB GPU with batch size 2, gradient accumulation 4, and gradient checkpointing. This tradeoff clarifies the intended use case: the method does not minimize total inference cost, but it does provide a controlled large-backbone adaptation recipe that remains feasible on commodity hardware.

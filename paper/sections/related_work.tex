@@ -1,0 +1,18 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Remote Sensing Scene Classification Under Limited Labels}
+
+Remote sensing scene classification has evolved from handcrafted feature pipelines to deep representation learning on datasets such as UCMerced, AID, and NWPU-RESISC45~\cite{yang2010ucm,xia2017aid,cheng2017nwpu,cheng2017survey}. While recent architectures have improved recognition quality, limited-label settings remain difficult because each class may contribute only a few examples and the intra-class visual variation of aerial scenes is often substantial~\cite{thapa2023review}. Under these conditions, it is especially important to distinguish robust gains from protocol-specific fluctuations.
+
+Few-shot and low-shot remote sensing methods have explored metric learning, prototype modeling, and specialized fusion strategies. Representative examples include RS-MetaNet~\cite{li2021rsmetanet}, SPNet~\cite{cheng2022spnet}, and subband-oriented feature learning~\cite{yang2023fewshotsubband}. These studies demonstrate that scarce-label remote sensing is a meaningful research setting, but they also illustrate a recurring issue: experimental pipelines are often tightly coupled to custom architectures or protocol choices, making reuse and fair comparison harder than in conventional full-data benchmarks.
+
+\subsection{Strong Pretraining and Controlled Adaptation}
+
+Large self-supervised visual backbones have changed the transfer-learning landscape. DINOv2~\cite{oquab2023dinov2} provides a reusable starting point for scarce-label geocomputing workflows, but the adaptation strategy still matters. Frozen probes may underfit, while unrestricted finetuning can be unnecessarily expensive or unstable in low-shot settings. A more controlled route is to update only a carefully chosen subset of parameters and use lightweight trainable modules to absorb task-specific corrections.
+
+Parameter-efficient adaptation methods such as residual adapters~\cite{houlsby2019adapter} are therefore relevant to remote sensing geocomputation: they reduce the number of trainable degrees of freedom while retaining most pretrained parameters. In scarce-label settings, that tradeoff can improve optimization behavior without requiring a fully redesigned backbone, and it also makes resource requirements easier to document and reproduce on modest hardware.
+
+\subsection{Reproducibility as a Geocomputing Concern}
+
+For geocomputing research, the value of a method is not determined only by one-off accuracy numbers. Reusable split manifests, explicit seed handling, configuration snapshots, script-driven table regeneration, and transparent resource reporting directly affect whether a method can be audited and extended by other groups. The current work is positioned at that intersection. Rather than proposing a heavily engineered remote sensing architecture, we ask whether a strong pretrained backbone plus controlled adaptation can provide a reproducible low-shot reference workflow on public datasets whose evidence can be rebuilt from the same recorded run outputs.

@@ -1,0 +1,46 @@
+class_name,support,accuracy
+airplane,10,1.0
+airport,10,1.0
+baseball diamond,10,1.0
+basketball court,10,1.0
+beach,10,0.9
+bridge,10,0.9
+chaparral,10,1.0
+church,10,0.8
+circular farmland,10,0.9
+cloud,10,0.9
+commercial area,10,0.8
+dense residential,10,0.7
+desert,10,0.8
+forest,10,0.9
+freeway,10,0.7
+golf course,10,0.7
+ground track field,10,0.7
+harbor,10,1.0
+industrial area,10,0.9
+intersection,10,0.9
+island,10,0.9
+lake,10,0.8
+meadow,10,0.8
+medium residential,10,0.8
+mobile home park,10,1.0
+mountain,10,1.0
+overpass,10,1.0
+palace,10,0.8
+parking lot,10,0.9
+railway,10,0.9
+railway station,10,0.9
+rectangular farmland,10,1.0
+river,10,1.0
+roundabout,10,1.0
+runway,10,0.9
+sea ice,10,1.0
+ship,10,1.0
+snowberg,10,0.9
+sparse residential,10,0.9
+stadium,10,0.9
+storage tank,10,1.0
+tennis court,10,0.9
+terrace,10,1.0
+thermal power station,10,0.9
+wetland,10,1.0

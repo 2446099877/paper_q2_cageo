@@ -1,0 +1,47 @@
+{
+  "class_names": [
+    "Airport",
+    "BareLand",
+    "BaseballField",
+    "Beach",
+    "Bridge",
+    "Center",
+    "Church",
+    "Commercial",
+    "DenseResidential",
+    "Desert",
+    "Farmland",
+    "Forest",
+    "Industrial",
+    "Meadow",
+    "MediumResidential",
+    "Mountain",
+    "Park",
+    "Parking",
+    "Playground",
+    "Pond",
+    "Port",
+    "RailwayStation",
+    "Resort",
+    "River",
+    "School",
+    "SparseResidential",
+    "Square",
+    "Stadium",
+    "StorageTanks",
+    "Viaduct"
+  ],
+  "num_classes": 30,
+  "manifest_path": "D:\\codex\\treatise\\paper_q2_cageo\\data\\splits\\aid_shot20_val10_seed3408.csv",
+  "protocol": {
+    "train_shots_per_class": 20,
+    "val_shots_per_class": 10,
+    "train_ratio": 0.2,
+    "val_ratio_from_train": 0.1
+  },
+  "split_sizes": {
+    "train": 600,
+    "val": 300,
+    "test": 9100
+  }
+}

@@ -1,0 +1,32 @@
+base: ../base.yaml
+
+experiment:
+  name: aid_low20_convnext_tiny
+  run_name: baseline
+
+data:
+  dataset_name: AID
+  root: ../data/raw/AID
+  train_shots_per_class: 20
+  val_shots_per_class: 10
+  batch_size: 32
+
+model:
+  dropout: 0.1
+  use_msca: false
+  use_lgfh: false
+  use_agfh: false
+  use_sgfh: false
+  use_amcc: false
+  use_proto_calib: false
+
+training:
+  epochs: 80
+  learning_rate: 0.00015
+  label_smoothing: 0.0
+  mixup_alpha: 0.0
+  cutmix_alpha: 0.0
+  mix_probability: 0.0
+  patience: 15
+  prototype_loss_weight: 0.0
+  refresh_prototypes_each_epoch: false

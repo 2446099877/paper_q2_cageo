@@ -1,0 +1,16 @@
+\begin{table}[t]
+  \centering
+  \caption{Three-seed mean$\pm$std ablation results on AID-low20 under the fixed split protocol.}
+  \label{tab:aid-low20_ablation}
+  \begin{tabular}{l c c c}
+    \toprule
+    Variant & OA & AA & Kappa \\
+    \midrule
+    ConvNeXt-Tiny & 0.9179 $\pm$ 0.0086 & 0.9158 $\pm$ 0.0076 & 0.9150 $\pm$ 0.0089 \\
+    NoCenter & 0.9350 $\pm$ 0.0075 & 0.9333 $\pm$ 0.0063 & 0.9327 $\pm$ 0.0078 \\
+    NoAdapter & 0.9416 $\pm$ 0.0066 & 0.9391 $\pm$ 0.0067 & 0.9396 $\pm$ 0.0069 \\
+    Adapter only & 0.8981 $\pm$ 0.0050 & 0.8969 $\pm$ 0.0044 & 0.8944 $\pm$ 0.0052 \\
+    DINOv2-B (Adapter, FT) & 0.9413 $\pm$ 0.0036 & 0.9388 $\pm$ 0.0036 & 0.9392 $\pm$ 0.0037 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

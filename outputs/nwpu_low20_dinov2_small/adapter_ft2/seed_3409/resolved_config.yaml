@@ -1,0 +1,107 @@
+experiment:
+  name: nwpu_low20_dinov2_small
+  output_root: outputs
+  run_name: adapter_ft2
+  device: cuda
+  amp: true
+  seed: 3409
+  seeds:
+  - 3407
+  - 3408
+  - 3409
+  deterministic: false
+  output_dir: D:\codex\treatise\paper_q2_cageo\outputs\nwpu_low20_dinov2_small\adapter_ft2\seed_3409
+  project_root: D:\codex\treatise\paper_q2_cageo
+  config_path: D:\codex\treatise\paper_q2_cageo\configs\experiments\nwpu_low20_dino_adapter_ft2.yaml
+data:
+  dataset_name: NWPU_RESISC45
+  root: D:\codex\treatise\paper_q2_cageo\..\data\raw\NWPU_RESISC45
+  image_size: 224
+  batch_size: 8
+  num_workers: 4
+  pin_memory: true
+  manifest_dir: D:\codex\treatise\paper_q2_cageo\data\splits
+  protocol_train_ratio: 0.2
+  val_ratio_from_train: 0.1
+  extensions:
+  - .jpg
+  - .jpeg
+  - .png
+  - .tif
+  - .tiff
+  train_shots_per_class: 20
+  val_shots_per_class: 10
+  manifest_path: D:\codex\treatise\paper_q2_cageo\data\splits\nwpu_resisc45_shot20_val10_seed3409.csv
+model:
+  backbone: dinov2_small
+  pretrained: true
+  pretrained_model_name: facebook/dinov2-small
+  gradient_checkpointing: false
+  freeze_backbone: true
+  unfreeze_last_n_blocks: 2
+  unfreeze_backbone_norm: true
+  token_pooling: cls
+  dropout: 0.1
+  use_msca: false
+  use_lgfh: false
+  use_agfh: false
+  use_sgfh: false
+  use_cosine: false
+  use_amcc: false
+  use_center_reg: false
+  use_feature_center_reg: true
+  use_proto_reg: false
+  use_proto_calib: false
+  msca_reduction: 4
+  msca_kernels:
+  - 3
+  - 5
+  - 7
+  head_reduction: 4
+  adapter_dim: 192
+  adapter_dropout: 0.1
+  dinov2_patch_size: 14
+  dinov2_hidden_size: 384
+  dinov2_num_hidden_layers: 12
+  dinov2_num_attention_heads: 6
+  dinov2_intermediate_size: 1536
+  agfh_p_init: 3.0
+  agfh_dropout: 0.0
+  sgfh_topk_ratio: 0.25
+  sgfh_dropout: 0.1
+  cosine_scale: 30.0
+  cosine_learn_scale: false
+  amcc_scale: 30.0
+  amcc_margin: 0.15
+  amcc_learn_scale: false
+  center_reg_scale: 30.0
+  center_reg_learn_scale: false
+  proto_reg_scale: 30.0
+  proto_reg_learn_scale: false
+  proto_calib_scale: 30.0
+  proto_calib_prototype_scale: 24.0
+  proto_calib_mix_init: -2.0
+  proto_calib_learn_scale: false
+training:
+  epochs: 60
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  betas:
+  - 0.9
+  - 0.999
+  gradient_accumulation_steps: 1
+  label_smoothing: 0.0
+  mixup_alpha: 0.0
+  cutmix_alpha: 0.0
+  mix_probability: 0.0
+  gradient_clip_norm: 1.0
+  patience: 12
+  min_delta: 0.0005
+  center_loss_weight: 0.02
+  center_update_momentum: 0.9
+  prototype_loss_weight: 0.0
+  refresh_prototypes_each_epoch: false
+evaluation:
+  save_confusion_matrix: true
+  save_gradcam_samples: 4
+  gradcam_split: test

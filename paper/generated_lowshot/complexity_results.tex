@@ -1,0 +1,14 @@
+\begin{table}[t]
+  \centering
+  \caption{Complexity comparison of the main baseline, the full method, and the no-adapter control. Trainable parameters are reported separately from total parameters.}
+  \label{tab:complexity_results}
+  \begin{tabular}{l c c c}
+    \toprule
+    Method & Total Params & Trainable Params & FLOPs \\
+    \midrule
+    ConvNeXt-Tiny & 27.8M & 27.8M & 8.93G \\
+    DINOv2-B (NoAdapter, FT) & 86.6M & 7.12M & 43.93G \\
+    DINOv2-B (Adapter, FT) & 87.0M & 7.51M & 43.93G \\
+    \bottomrule
+  \end{tabular}
+\end{table}
