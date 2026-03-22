@@ -66,6 +66,9 @@
   - `related_work` 更强调 `rebuildable geocomputing evidence`
   - `experiments` 明确写入 `manifest-to-result` 可追溯与脚本化聚合
   - `cover letter / highlights` 已改成更贴近 `C&G` 编辑视角的口径
+- 已完成公开仓库落地：
+  - `https://github.com/2446099877/paper_q2_cageo`
+  - `CITATION.cff`、`Code availability`、cover letter 已切到真实公开仓库地址
 
 ### 新工作区内已新增实验
 

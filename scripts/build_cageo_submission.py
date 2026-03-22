@@ -11,6 +11,7 @@ SECTIONS_DIR = PAPER_ROOT / "sections"
 GENERATED_DIR = PAPER_ROOT / "generated_lowshot"
 TEMPLATE_ROOT = PAPER_ROOT / "cageo_template" / "CAGEO_LaTeXTemplate-main"
 OUTPUT_PATH = TEMPLATE_ROOT / "treatise_cageo_submission.tex"
+PUBLIC_REPO_URL = "https://github.com/2446099877/paper_q2_cageo"
 
 
 def parse_args() -> argparse.Namespace:
@@ -89,6 +90,7 @@ def build_document() -> str:
 \\usepackage{{amsmath,amssymb,amsfonts}}
 \\usepackage{{enumitem}}
 \\usepackage{{xcolor}}
+\\usepackage{{url}}
 
 \\begin{{document}}
 \\let\\WriteBookmarks\\relax
@@ -118,7 +120,7 @@ Please consider our manuscript ``Reproducible Selective Adaptation of DINOv2 for
 This manuscript addresses a practical geocomputing problem: scarce-label remote sensing scene classification under public-data, fixed-protocol evaluation. Rather than proposing another scene-classification architecture, we contribute a reproducible computational workflow that couples DINOv2-Base selective adaptation with persistent split manifests, scriptable multi-seed aggregation, and manuscript-rebuild assets.
 \\newline
 
-We believe the work fits Computers \\& Geosciences for three reasons. First, it addresses geospatial image analysis on public remote sensing benchmarks. Second, its central contribution is a reusable computational workflow rather than architecture-only benchmarking. Third, the code, configuration, and reproduction assets are already organized in reviewer-safe form and are prepared for public release under the MIT License in line with the journal's code-availability expectations.
+We believe the work fits Computers \\& Geosciences for three reasons. First, it addresses geospatial image analysis on public remote sensing benchmarks. Second, its central contribution is a reusable computational workflow rather than architecture-only benchmarking. Third, the code, configuration, and reproduction assets are publicly available at \\url{{{PUBLIC_REPO_URL}}} under the MIT License, with a reviewer-safe archive retained for inspection convenience.
 \\newline
 
 Under one fixed class-balanced protocol, we observe a strong overall-accuracy increase on AID from 0.9179 to 0.9413 and a modest positive increase on NWPU-RESISC45 from 0.8721 to 0.8790, presented as reproducible workflow outcomes rather than universal performance claims. Same-backbone ablations show that selective finetuning provides the primary gain, while the adapter mainly improves stability and the feature-center regularizer improves consistency.
@@ -188,7 +190,7 @@ Software required: PyTorch environment defined by the project requirements file.
 
 Program size: the release package contains the source modules, experiment scripts, configuration files, and manuscript-build assets required to reproduce the reported workflow, excluding raw datasets and trained checkpoints.
 
-The source code, experiment configurations, split-generation logic, aggregation scripts, and manuscript-table rebuild scripts will be deposited in the final project repository referenced in the camera-ready materials. A reviewer-safe archive containing the source modules, manifests, configurations, and manuscript-build assets is already prepared for inspection if required. The planned public release will use the MIT License.
+The source code, experiment configurations, split-generation logic, aggregation scripts, and manuscript-table rebuild scripts are publicly available at \\url{{{PUBLIC_REPO_URL}}}. A reviewer-safe archive containing the source modules, manifests, configurations, and manuscript-build assets is also retained for inspection convenience. The public repository is released under the MIT License.
 
 {appendix}
 

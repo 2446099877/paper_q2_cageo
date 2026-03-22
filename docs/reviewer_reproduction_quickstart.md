@@ -8,6 +8,11 @@
 - 所有新生成结果默认写入当前工作区自己的 `outputs/`
 - 不需要也不应该把结果写回旧论文目录
 
+## Public Repository
+
+- Public code repository: `https://github.com/2446099877/paper_q2_cageo`
+- Public license: `MIT`
+
 ## Environment
 
 - Python: `D:\python311\python.exe`

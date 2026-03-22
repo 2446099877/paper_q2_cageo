@@ -27,7 +27,7 @@
 
 - [ ] Confirm final author list is unchanged
 - [ ] Confirm funding statement
-- [ ] Create final public repository and fill real URL
-- [ ] Confirm open-source license text shown in repository
+- [x] Final public repository created and real URL filled
+- [x] Open-source license text shown in repository
 - [ ] Decide whether reviewer-safe access is via zip packet or private repository
 - [ ] Final pass on minor LaTeX warning noise if needed

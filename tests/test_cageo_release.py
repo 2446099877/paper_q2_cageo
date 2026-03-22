@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PUBLIC_REPO_URL = "https://github.com/2446099877/paper_q2_cageo"
 
 
 class CageoReleaseTests(unittest.TestCase):
@@ -55,10 +56,18 @@ class CageoReleaseTests(unittest.TestCase):
         ).read_text(encoding="utf-8")
         self.assertIn("MIT License", manuscript)
         self.assertIn("reviewer-safe archive", manuscript)
+        self.assertIn(PUBLIC_REPO_URL, manuscript)
+        self.assertNotIn("camera-ready materials", manuscript)
+        self.assertNotIn("planned public release", manuscript)
 
     def test_readme_avoids_local_absolute_links(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertNotIn("](/D:/", readme)
+
+    def test_citation_uses_real_repository_url(self) -> None:
+        citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+        self.assertIn(PUBLIC_REPO_URL, citation)
+        self.assertNotIn("TO_BE_FILLED", citation)
 
 
 if __name__ == "__main__":
