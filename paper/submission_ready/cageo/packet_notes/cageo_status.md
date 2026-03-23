@@ -23,6 +23,7 @@
   - [check_cageo_packet_readiness.py](/D:/codex/treatise/paper_q2_cageo/scripts/check_cageo_packet_readiness.py)
 - 当前 `C&G` 提交包已通过本地占位符扫描：
   - `outstanding_placeholders: none`
+- 当前提交版 PDF 已按官方要求启用双倍行距与 line numbering
 - 第二篇独立 reviewer-safe 代码包已生成：
   - [cageo_reviewer_code_packet](/D:/codex/treatise/paper_q2_cageo/paper/submission_ready/cageo_reviewer_code_packet)
   - [cageo_reviewer_code_packet.zip](/D:/codex/treatise/paper_q2_cageo/paper/submission_ready/cageo_reviewer_code_packet.zip)

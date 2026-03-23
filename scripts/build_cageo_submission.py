@@ -91,6 +91,7 @@ def build_document() -> str:
 \\usepackage{{enumitem}}
 \\usepackage{{xcolor}}
 \\usepackage{{url}}
+\\usepackage{{lineno}}
 
 \\begin{{document}}
 \\let\\WriteBookmarks\\relax
@@ -149,6 +150,8 @@ remote sensing scene classification \\sep scarce-label learning \\sep reproducib
 \\printcredits
 
 \\doublespacing
+\\modulolinenumbers[5]
+\\linenumbers
 
 {introduction}
 

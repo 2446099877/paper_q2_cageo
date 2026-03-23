@@ -22,6 +22,10 @@
   - 仓库链接需要写进稿件
   - 开源许可证需要在稿件中明确标出
   - 非开源代码稿件会被 desk reject
+- 当前投稿格式侧重点：
+  - single-column
+  - double spaced
+  - line numbers required for submission review
 
 ## Current Manuscript Alignment
 
@@ -33,6 +37,10 @@
   - 正文已写公开仓库
   - 正文已写 `MIT`
   - reviewer-safe zip 已单独准备
+- 当前稿件满足当前投稿格式硬要求：
+  - 单栏提交稿已生成
+  - 双倍行距已启用
+  - line numbering 已启用
 
 ## Remaining Scope-Side Discipline
 

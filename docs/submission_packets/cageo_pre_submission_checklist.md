@@ -7,6 +7,7 @@
 - [x] Single-column CAS manuscript generated
 - [x] PDF compiled locally
 - [x] Code availability section present
+- [x] Double spacing and line numbering enabled for submission PDF
 - [x] Highlights present
 - [x] Cover letter text prepared
 - [x] Authorship statement prepared
