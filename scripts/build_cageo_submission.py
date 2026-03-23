@@ -103,9 +103,12 @@ def build_document() -> str:
 \\title[mode = title]{{A Reproducible DINOv2 Workflow for Low-Shot Remote Sensing Classification}}
 
 \\author[1]{{Chao Hou}}
+\\cormark[1]
+\\ead{{2446099877@qq.com}}
 \\credit{{Conceptualization, methodology, software, validation, visualization, writing - original draft.}}
+\\cortext[1]{{Corresponding author.}}
 
-\\address[1]{{School of Cybersecurity, Xi'an Polytechnic University, Xi'an, Shaanxi, China}}
+\\address[1]{{School of Cybersecurity, Xi'an Polytechnic University, No. 19 Jinhua South Road, Xi'an 710048, Shaanxi, China}}
 
 \\begin{{abstract}}
 {abstract_body}
@@ -163,10 +166,8 @@ remote sensing scene classification \\sep scarce-label learning \\sep reproducib
 
 {conclusion}
 
-\\section{{Acknowledgments}}
-This work currently has no external funding to declare.
-
-\\newpage
+\\section*{{Funding}}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
 \\section*{{Code availability}}
 Name of the code/library: Treatise scarce-label remote sensing classification workflow.
@@ -187,9 +188,16 @@ The source code, experiment configurations, split-generation logic, aggregation 
 
 Repository URL: \\url{{{PUBLIC_REPO_URL}}}.
 
-Data availability: AID and NWPU-RESISC45 are public datasets cited in the manuscript. The repository provides split manifests and reproduction guidance, but does not redistribute raw images; users should obtain the original data from the official dataset sources under their respective terms.
-
 A reviewer-safe archive containing the same source modules, manifests, configurations, and manuscript-build assets is retained for inspection convenience. The public repository is released under the MIT License.
+
+\\section*{{Data availability}}
+AID and NWPU-RESISC45 are public datasets cited in the manuscript. The repository provides split manifests and reproduction guidance, but does not redistribute raw images; users should obtain the original data from the official dataset sources under their respective terms.
+
+\\section*{{Declaration of competing interest}}
+The author declares that there are no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\\section*{{Declaration of generative AI and AI-assisted technologies in the writing process}}
+During the preparation of this manuscript, the author used OpenAI GPT-5-based tools to assist with language polishing, draft restructuring, code refactoring support, and submission-material preparation. All experiment design, data processing, result verification, scientific interpretation, and final manuscript decisions were reviewed and approved by the human author, who takes full responsibility for the submitted work.
 
 {appendix}
 

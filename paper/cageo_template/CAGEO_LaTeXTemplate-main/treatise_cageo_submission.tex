@@ -24,9 +24,12 @@
 \title[mode = title]{A Reproducible DINOv2 Workflow for Low-Shot Remote Sensing Classification}
 
 \author[1]{Chao Hou}
+\cormark[1]
+\ead{2446099877@qq.com}
 \credit{Conceptualization, methodology, software, validation, visualization, writing - original draft.}
+\cortext[1]{Corresponding author.}
 
-\address[1]{School of Cybersecurity, Xi'an Polytechnic University, Xi'an, Shaanxi, China}
+\address[1]{School of Cybersecurity, Xi'an Polytechnic University, No. 19 Jinhua South Road, Xi'an 710048, Shaanxi, China}
 
 \begin{abstract}
 Scarce labels remain a practical bottleneck in geospatial image analysis, yet many remote sensing scene classification studies still rely on protocol-specific settings that are hard to reproduce or compare fairly. Rather than introducing another remote-sensing-specific architecture, we present a reproducible adaptive-transfer workflow for scarce-label scene classification built on \textbf{DINOv2-Base}, fixed class-balanced split manifests, and scripted multi-seed evaluation. The model freezes most pretrained parameters, selectively unfreezes only the last transformer block and final normalization, inserts a residual feature adapter, and applies momentum-updated feature-center regularization. Experiments on AID and NWPU-RESISC45 follow a fixed protocol with 20 training images and 10 validation images per class, and all main comparisons are reported as three-seed averages regenerated from the same experiment outputs. Against a matched-split ConvNeXt-Tiny reference under identical data partitions, the workflow improves mean overall accuracy from 0.9179 to 0.9413 on AID and yields a smaller but still positive increase from 0.8721 to 0.8790 on NWPU-RESISC45. Same-backbone ablations show that selective finetuning provides most of the mean gain, while the adapter mainly reduces seed variance and the feature-center term improves mean performance on both datasets. Although the full backbone is not lightweight in total inference cost, only about 7.5 million parameters are trainable and the final setup remains feasible on an 8 GB GPU. The resulting contribution is a practical geocomputing workflow centered on public data, fixed manifests, and rebuildable evidence rather than on architectural novelty alone.
@@ -365,10 +368,8 @@ The current evidence suggests that selective backbone finetuning is the main sou
 
 Several limitations remain. The gain on NWPU-RESISC45 is positive but modest, so the cross-dataset conclusion should be interpreted conservatively and read mainly as evidence that the workflow remains stable under a second public benchmark. The method is parameter-efficient in trainable subset rather than lightweight in total inference complexity. Finally, the current study covers two public datasets under a fixed 20-shot protocol; broader shot regimes and additional remote sensing domains would strengthen future validation. Even with these limits, the workflow provides a useful open baseline for scarce-label geospatial image analysis and a concrete starting point for follow-up geocomputing studies.
 
-\section{Acknowledgments}
-This work currently has no external funding to declare.
-
-\newpage
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
 \section*{Code availability}
 Name of the code/library: Treatise scarce-label remote sensing classification workflow.
@@ -389,9 +390,16 @@ The source code, experiment configurations, split-generation logic, aggregation 
 
 Repository URL: \url{https://github.com/2446099877/paper_q2_cageo}.
 
-Data availability: AID and NWPU-RESISC45 are public datasets cited in the manuscript. The repository provides split manifests and reproduction guidance, but does not redistribute raw images; users should obtain the original data from the official dataset sources under their respective terms.
-
 A reviewer-safe archive containing the same source modules, manifests, configurations, and manuscript-build assets is retained for inspection convenience. The public repository is released under the MIT License.
+
+\section*{Data availability}
+AID and NWPU-RESISC45 are public datasets cited in the manuscript. The repository provides split manifests and reproduction guidance, but does not redistribute raw images; users should obtain the original data from the official dataset sources under their respective terms.
+
+\section*{Declaration of competing interest}
+The author declares that there are no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+During the preparation of this manuscript, the author used OpenAI GPT-5-based tools to assist with language polishing, draft restructuring, code refactoring support, and submission-material preparation. All experiment design, data processing, result verification, scientific interpretation, and final manuscript decisions were reviewed and approved by the human author, who takes full responsibility for the submitted work.
 
 \section{Seed-Wise OA Results}
 \label{sec:appendix_seedwise}

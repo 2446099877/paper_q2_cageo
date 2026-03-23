@@ -37,7 +37,11 @@
   - reviewer-safe code release wording
   - stale template wording cleanup
   - real GitHub repository URL injection
-  - 当前 `14` 个测试全部通过
+  - highlights consistency and length
+  - manuscript submission metadata sections
+  - word-count guardrail
+  - Editorial Manager bundle completeness
+  - 当前 `19` 个测试全部通过
 - 已完成一轮最终 LaTeX warning 复查：
   - 现存 warning 主要来自 `cas-sc` 模板排版与长段落换行
   - 属于非阻塞噪声，不影响 PDF 产出与提交内容完整性
@@ -53,7 +57,21 @@
   - [cageo_editorial_manager_runbook_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/cageo_editorial_manager_runbook_2026-03-23.md)
 - `Generative AI` 投稿声明草稿已补齐：
   - [cageo_generative_ai_declaration_draft_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/cageo_generative_ai_declaration_draft_2026-03-23.md)
-- 当前主稿粗略词数约 `4866`，仍位于官方 `Research/Application` 投稿字数安全区间内
+- `Competing interest` 与 `Data availability` 声明草稿已补齐
+- 当前主稿已补齐：
+  - corresponding author email
+  - funding statement
+  - code availability
+  - data availability
+  - competing interest
+  - generative AI declaration
+- 当前 guardrail 统计：
+  - abstract `238` words
+  - main body `2881` words
+  - keywords `6`
+- `Editorial Manager` 上传 bundle 已生成：
+  - [cageo_editorial_manager_bundle](/D:/codex/treatise/paper_q2_cageo/paper/submission_ready/cageo_editorial_manager_bundle)
+  - [cageo_editorial_manager_bundle.zip](/D:/codex/treatise/paper_q2_cageo/paper/submission_ready/cageo_editorial_manager_bundle.zip)
 - 已创建投稿前冻结快照：
   - [final_submission_freeze_2026-03-23.md](final_submission_freeze_2026-03-23.md)
 - 已按官方最新期刊口径完成一轮 scope 对齐核对：
@@ -75,7 +93,7 @@
 ## Pending But Ready To Fill
 
 - 如果作者、单位、联系方式后续发生变化，需要在投稿前同步作者块
-- 如果 funding 状态后续变化，需要同步更新 Acknowledgments
+- 如果 funding 状态后续变化，需要同步更新 `Funding` 段落与上传声明
 - 如果正式上线仓库时不想使用 `MIT`，需要在公开前统一替换许可文本
 
 ## Residual Risks
@@ -84,9 +102,10 @@
 - `DINOv2-small` 的 `NWPU` 三 seed 已补齐，但结果相对 `ConvNeXt-Tiny` 为 `-0.0071 OA`，因此这条线更适合作为补充负结果，而不是正文主卖点
 - `C&G` 模板目前能成功出 PDF，但仍有少量非阻塞版式 warning
 - 当前 warning 已复核为模板级非阻塞噪声；仅在极致版面优化时再处理
-- 当前作者与联系信息是从旧投稿资产复用的默认口径；如果作者列表有变动，需要在正式投稿前核对
+- 当前作者与联系信息已在主稿与 bundle 中落地；如果作者列表后续变化，仍需在正式投稿前统一重写
 - reviewer-safe 方案已定为 zip 补充材料；正式投稿时需确认是否一起上传
 - 依据 `Computers & Geosciences` 官方 Guide for Authors，正文需要包含可下载代码的仓库链接并标明开源许可；当前本地源码已具备此条件，但正式投稿前仍应复查仓库首页与 README 展示效果
+- 当前仍有非阻塞 `lineno`/首屏排版 warning；属于 CAS 模板噪声，不影响投稿，但若追求极致版式可继续微调
 
 ## Current Default Commands
 
@@ -96,3 +115,5 @@
   - `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\check_cageo_packet_readiness.py`
 - 串行验证 `C&G` 提交包：
   - `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\validate_cageo_submission.py`
+- 单独重建 Editorial Manager 上传 bundle：
+  - `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\prepare_cageo_editorial_manager_bundle.py`

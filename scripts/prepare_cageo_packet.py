@@ -127,6 +127,7 @@ def main() -> None:
     copy_if_exists(TEMPLATE_ROOT / "cas-common.sty", packet_dir / "cas-common.sty")
     copy_if_exists(TEMPLATE_ROOT / "cas-model2-names.bst", packet_dir / "cas-model2-names.bst")
     copy_tree(PAPER_ROOT / "figures", packet_dir / "figures")
+    copy_tree(TEMPLATE_ROOT / "thumbnails", packet_dir / "thumbnails")
 
     notes_dir = packet_dir / "packet_notes"
     notes_dir.mkdir(parents=True, exist_ok=True)
@@ -134,6 +135,8 @@ def main() -> None:
         "cageo_official_notes_2026-03-22.md",
         "cageo_official_scope_check_2026-03-23.md",
         "cageo_editorial_manager_runbook_2026-03-23.md",
+        "cageo_competing_interest_statement_2026-03-23.md",
+        "cageo_data_availability_statement_2026-03-23.md",
         "cageo_generative_ai_declaration_draft_2026-03-23.md",
         "cageo_cover_letter_draft.md",
         "cageo_highlights_draft.md",

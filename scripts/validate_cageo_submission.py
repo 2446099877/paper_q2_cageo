@@ -15,6 +15,8 @@ def run_step(command: list[str]) -> None:
 def main() -> None:
     run_step([sys.executable, str(ROOT / "scripts" / "compile_cageo_pdf.py")])
     run_step([sys.executable, str(ROOT / "scripts" / "check_cageo_packet_readiness.py")])
+    run_step([sys.executable, str(ROOT / "scripts" / "check_cageo_word_count.py"), "--strict"])
+    run_step([sys.executable, str(ROOT / "scripts" / "prepare_cageo_editorial_manager_bundle.py")])
     run_step([sys.executable, "-m", "unittest", "discover", "-s", "tests"])
     print("validated C&G submission packet successfully")
 

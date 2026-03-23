@@ -1,0 +1,12 @@
+# C&G Competing Interest Statement
+
+
+## 建议提交文本
+
+The author declares that there are no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+## 当前边界说明
+
+- 当前按单作者口径准备
+- 当前默认结论为 no competing interests
+- 若后续作者结构或合作关系变化，需要同步改正文与上传声明

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import re
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -24,7 +26,9 @@ class CageoReleaseTests(unittest.TestCase):
         notes_dir = ROOT / "docs" / "submission_packets"
         required = [
             "cageo_authorship_statement.md",
+            "cageo_competing_interest_statement_2026-03-23.md",
             "cageo_cover_letter_draft.md",
+            "cageo_data_availability_statement_2026-03-23.md",
             "cageo_editorial_manager_runbook_2026-03-23.md",
             "cageo_fill_once_form.md",
             "cageo_generative_ai_declaration_draft_2026-03-23.md",
@@ -40,6 +44,8 @@ class CageoReleaseTests(unittest.TestCase):
     def test_submission_packet_contains_support_docs(self) -> None:
         notes_dir = ROOT / "paper" / "submission_ready" / "cageo" / "packet_notes"
         required = [
+            "cageo_competing_interest_statement_2026-03-23.md",
+            "cageo_data_availability_statement_2026-03-23.md",
             "cageo_editorial_manager_runbook_2026-03-23.md",
             "cageo_fill_once_form.md",
             "cageo_generative_ai_declaration_draft_2026-03-23.md",
@@ -62,6 +68,24 @@ class CageoReleaseTests(unittest.TestCase):
 
     def test_submission_pdf_exists(self) -> None:
         self.assertTrue((ROOT / "paper" / "submission_ready" / "cageo" / "manuscript.pdf").exists())
+
+    def test_editorial_bundle_exists(self) -> None:
+        bundle_dir = ROOT / "paper" / "submission_ready" / "cageo_editorial_manager_bundle"
+        required = [
+            "01_manuscript.pdf",
+            "02_highlights.txt",
+            "03_cover_letter.docx",
+            "04_authorship_statement.docx",
+            "05_competing_interest_statement.docx",
+            "06_generative_ai_declaration.docx",
+            "07_data_availability_statement.docx",
+            "08_source_files.zip",
+            "09_reviewer_code_packet.zip",
+            "README.md",
+        ]
+        missing = [name for name in required if not (bundle_dir / name).exists()]
+        self.assertEqual(missing, [], msg=f"Missing editorial bundle files: {missing}")
+        self.assertTrue((ROOT / "paper" / "submission_ready" / "cageo_editorial_manager_bundle.zip").exists())
 
     def test_highlights_are_submission_ready(self) -> None:
         draft_path = ROOT / "docs" / "submission_packets" / "cageo_highlights_draft.md"
@@ -124,8 +148,25 @@ class CageoReleaseTests(unittest.TestCase):
         self.assertIn("MIT License", manuscript)
         self.assertIn("reviewer-safe archive", manuscript)
         self.assertIn(PUBLIC_REPO_URL, manuscript)
+        self.assertIn("Declaration of competing interest", manuscript)
+        self.assertIn(
+            "Declaration of generative AI and AI-assisted technologies in the writing process",
+            manuscript,
+        )
+        self.assertIn("Data availability", manuscript)
+        self.assertIn("This research did not receive any specific grant", manuscript)
+        self.assertIn("\\cormark[1]", manuscript)
+        self.assertIn("\\ead{2446099877@qq.com}", manuscript)
         self.assertNotIn("camera-ready materials", manuscript)
         self.assertNotIn("planned public release", manuscript)
+
+    def test_word_count_guardrail_passes(self) -> None:
+        script = ROOT / "scripts" / "check_cageo_word_count.py"
+        subprocess.run(
+            [sys.executable, str(script), "--strict"],
+            cwd=ROOT,
+            check=True,
+        )
 
     def test_readme_avoids_local_absolute_links(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
