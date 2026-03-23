@@ -70,8 +70,8 @@ This directory organizes the current `Computers & Geosciences` submission materi
 - `references.bib`: bibliography used by the manuscript
 - `figures/`: figure assets referenced by the manuscript
 - `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst`: template support files
-- `packet_notes/`: official notes, review quickstart, scope-check note, and support drafts
-- `packet_manifest_sha256.txt`: integrity manifest for the packet files
+- `packet_notes/`: internal support notes for editorial upload and reviewer handling
+- `packet_manifest_sha256.txt`: integrity manifest for the current packet directory contents
 
 ## Notes
 
@@ -80,7 +80,8 @@ This directory organizes the current `Computers & Geosciences` submission materi
 - Before final submission, verify that the current single-author metadata is still correct and that the repository landing page remains publicly accessible.
 - Raw datasets are not redistributed in this packet; reviewers should obtain AID and NWPU-RESISC45 from their original public sources and then use the included manifests and scripts for reproduction.
 - `highlights.txt` is synchronized from the maintained highlights draft and is ready for Editorial Manager upload.
-- `packet_manifest_sha256.txt` can be retained internally to verify the integrity of archived packet files after zipping or transfer.
+- `packet_notes/` is an internal submission aid and should not be treated as a required Editorial Manager upload set.
+- `packet_manifest_sha256.txt` is refreshed after `compile_cageo_pdf.py` and can be retained internally to verify archived packet contents, including `manuscript.pdf`.
 - One-click rebuild + compile script:
   `D:\\python311\\python.exe D:\\codex\\treatise\\paper_q2_cageo\\scripts\\compile_cageo_pdf.py`
 - Placeholder readiness check:

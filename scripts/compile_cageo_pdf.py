@@ -5,6 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from prepare_cageo_packet import write_packet_manifest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKET_DIR = ROOT / "paper" / "submission_ready" / "cageo"
@@ -52,6 +54,7 @@ def main() -> None:
     if not pdf_path.exists():
         raise FileNotFoundError(f"Expected compiled PDF was not created: {pdf_path}")
 
+    write_packet_manifest(PACKET_DIR)
     print(f"compiled C&G PDF to {pdf_path}")
 
 

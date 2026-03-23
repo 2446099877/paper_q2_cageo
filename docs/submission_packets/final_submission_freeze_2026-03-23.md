@@ -19,11 +19,11 @@
 ## Verification Snapshot
 
 - 已验证的代表性里程碑提交（非穷尽）：
-  - `0f5cc4a` (`finalize-cageo-validation-and-status-sync`)
-  - `3e885bd` (`add-final-submission-freeze-snapshot`)
-  - `11e42a9` (`fix-packet-freeze-copy-and-link-stability`)
-  - `956069a` (`refine-code-availability-wording-and-rebuild-packet`)
-- 单元测试：`python -m unittest discover -s tests`（`14` 项通过）
+  - `efe65d8` (`harden-cageo-submission-compliance-pack`)
+  - `f74ee9b` (`enable-line-numbered-cageo-submission-mode`)
+  - `08b8a2b` (`make-cageo-packet-self-auditable`)
+  - `c9cf35d` (`add-official-cageo-scope-alignment-note`)
+- 单元测试：`python -m unittest discover -s tests`（`17` 项通过）
 - 提交包占位符扫描：`outstanding_placeholders: none`
 - PDF 产物：
   - [manuscript.pdf](/D:/codex/treatise/paper_q2_cageo/paper/submission_ready/cageo/manuscript.pdf)

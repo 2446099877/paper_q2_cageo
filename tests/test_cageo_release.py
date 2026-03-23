@@ -56,6 +56,7 @@ class CageoReleaseTests(unittest.TestCase):
         self.assertTrue(manifest.exists())
         text = manifest.read_text(encoding="utf-8")
         self.assertIn("highlights.txt", text)
+        self.assertIn("manuscript.pdf", text)
         self.assertIn("manuscript.tex", text)
         self.assertIn("packet_notes/cageo_status.md", text)
 
