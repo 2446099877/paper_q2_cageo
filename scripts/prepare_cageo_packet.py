@@ -99,6 +99,7 @@ def main() -> None:
         "cageo_pre_submission_checklist.md",
         "cageo_status.md",
         "cageo_fill_once_form.md",
+        "final_submission_freeze_2026-03-23.md",
     ]:
         shutil.copy2(ROOT / "docs" / "submission_packets" / filename, notes_dir / filename)
 

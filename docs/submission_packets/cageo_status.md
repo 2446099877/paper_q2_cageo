@@ -47,7 +47,7 @@
 - `NWPU` 小增益的表述已收敛为更保守的跨数据集结论
 - reviewer quickstart、results snapshot、appendix 已完成第三轮一致性收口
 - 已创建投稿前冻结快照：
-  - [final_submission_freeze_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/final_submission_freeze_2026-03-23.md)
+  - [final_submission_freeze_2026-03-23.md](final_submission_freeze_2026-03-23.md)
 
 ## Current Positioning
 
