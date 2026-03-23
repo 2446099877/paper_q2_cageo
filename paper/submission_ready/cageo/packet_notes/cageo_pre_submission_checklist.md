@@ -1,6 +1,6 @@
 # C&G Pre-Submission Checklist
 
-更新时间：`2026-03-22`
+更新时间：`2026-03-23`
 
 ## Manuscript
 
@@ -25,9 +25,10 @@
 
 ## Before Final Submission
 
-- [ ] Confirm final author list is unchanged
-- [ ] Confirm funding statement
+- [x] Confirm final author list is unchanged (current submission assets use single-author `Chao Hou`)
+- [x] Confirm funding statement (`no external funding` statement is present in manuscript)
 - [x] Final public repository created and real URL filled
 - [x] Open-source license text shown in repository
-- [ ] Decide whether reviewer-safe access is via zip packet or private repository
-- [ ] Final pass on minor LaTeX warning noise if needed
+- [x] Decide reviewer-safe access mode (`cageo_reviewer_code_packet.zip` as supplementary reviewer material)
+- [x] Final pass on minor LaTeX warning noise completed (current warnings are non-blocking CAS template/layout noise)
+- [x] Freeze snapshot created (`final_submission_freeze_2026-03-23.md`)
