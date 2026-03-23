@@ -190,7 +190,11 @@ Software required: PyTorch environment defined by the project requirements file.
 
 Program size: the release package contains the source modules, experiment scripts, configuration files, and manuscript-build assets required to reproduce the reported workflow, excluding raw datasets and trained checkpoints.
 
-The source code, experiment configurations, split-generation logic, aggregation scripts, and manuscript-table rebuild scripts are publicly available at \\url{{{PUBLIC_REPO_URL}}}. A reviewer-safe archive containing the source modules, manifests, configurations, and manuscript-build assets is also retained for inspection convenience. The public repository is released under the MIT License.
+The source code, experiment configurations, split-generation logic, aggregation scripts, and manuscript-table rebuild scripts are publicly available in the project GitHub repository.
+
+Repository URL: \\url{{{PUBLIC_REPO_URL}}}.
+
+A reviewer-safe archive containing the source modules, manifests, configurations, and manuscript-build assets is also retained for inspection convenience. The public repository is released under the MIT License.
 
 {appendix}
 
