@@ -58,7 +58,8 @@ This directory organizes the current `Computers & Geosciences` submission materi
 
 - This packet was generated automatically from the current project sources.
 - The current packet already passes the local placeholder scan.
-- Before final submission, verify that the current single-author metadata is still correct and replace the provisional repository wording with the final public or reviewer-safe code link required by the journal.
+- Before final submission, verify that the current single-author metadata is still correct and that the repository landing page remains publicly accessible.
+- Raw datasets are not redistributed in this packet; reviewers should obtain AID and NWPU-RESISC45 from their original public sources and then use the included manifests and scripts for reproduction.
 - One-click rebuild + compile script:
   `D:\\python311\\python.exe D:\\codex\\treatise\\paper_q2_cageo\\scripts\\compile_cageo_pdf.py`
 - Placeholder readiness check:

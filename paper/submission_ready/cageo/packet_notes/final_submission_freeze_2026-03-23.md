@@ -18,7 +18,7 @@
 
 ## Verification Snapshot
 
-- 已验证的关键里程碑提交：
+- 已验证的代表性里程碑提交（非穷尽）：
   - `0f5cc4a` (`finalize-cageo-validation-and-status-sync`)
   - `3e885bd` (`add-final-submission-freeze-snapshot`)
   - `11e42a9` (`fix-packet-freeze-copy-and-link-stability`)

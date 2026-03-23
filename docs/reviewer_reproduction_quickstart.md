@@ -23,6 +23,8 @@
 
 - `data/raw/AID/<class_name>/*.jpg`
 - `data/raw/NWPU_RESISC45/<class_name>/*.jpg`
+- 仓库不再分发原始图像，只保留 split manifests 与复现脚本
+- 请从各数据集官方来源自行获取原始数据，并按上述目录放置
 
 ## Verify Dataset Layout
 
@@ -59,6 +61,7 @@ D:\python311\python.exe scripts\refresh_paper_assets.py
 
 - `AID-low20`: proposed workflow should show a clear OA increase over the matched-split `ConvNeXt-Tiny` reference, around `+0.023`
 - `NWPU-low20`: proposed workflow should show a modest positive OA shift over the matched-split `ConvNeXt-Tiny` reference, around `+0.007`
+- `NWPU-low20` 的三-seed 结果应按“directional matched-protocol evidence”解读，而不是 formal significance claim
 
 ## Main Artifacts
 

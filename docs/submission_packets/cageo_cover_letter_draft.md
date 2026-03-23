@@ -2,7 +2,7 @@
 
 Dear Editors,
 
-Please consider our manuscript entitled `A Reproducible DINOv2 Workflow for Scarce-Label Remote Sensing Scene Classification` for publication in `Computers & Geosciences`.
+Please consider our manuscript entitled `A Reproducible DINOv2 Workflow for Low-Shot Remote Sensing Classification` for publication in `Computers & Geosciences`.
 
 This manuscript addresses a practical geocomputing problem: scarce-label remote sensing scene classification under public-data, fixed-protocol evaluation. Rather than proposing another scene-classification architecture, we contribute a reproducible geocomputing workflow that couples DINOv2-Base selective adaptation with persistent split manifests, scriptable multi-seed aggregation, and manuscript-rebuild assets.
 

@@ -15,7 +15,7 @@
 - `ConvNeXt-Tiny`: `0.8721 ± 0.0116`
 - `DINOv2-Base + Adapter + FT + Center`: `0.8790 ± 0.0085`
 - `ΔOA = +0.0069`
-- 当前解释：`modest but positive shift under the fixed protocol`
+- 当前解释：`modest but positive shift under the fixed protocol`, interpreted as directional evidence rather than a formal significance claim
 
 ## 关键消融
 
