@@ -1,6 +1,6 @@
 # C&G Submission Status
 
-更新时间：`2026-03-22`
+更新时间：`2026-03-23`
 
 ## Completed
 
@@ -37,6 +37,9 @@
   - stale template wording cleanup
   - real GitHub repository URL injection
   - 当前 `14` 个测试全部通过
+- 已完成一轮最终 LaTeX warning 复查：
+  - 现存 warning 主要来自 `cas-sc` 模板排版与长段落换行
+  - 属于非阻塞噪声，不影响 PDF 产出与提交内容完整性
 - 独立工作区内已完成一条新实验扩展：
   - `AID low20 + DINOv2-small + adapter_ft2` 三 seed `0.9262 ± 0.0020`
 - 摘要、引言、结论已完成一轮 `geocomputing / reproducibility` 口径强化
@@ -68,6 +71,7 @@
 - 当前 `NWPU` 增益仍偏小，摘要和结论必须继续保持克制
 - `DINOv2-small` 的 `NWPU` 三 seed 已补齐，但结果相对 `ConvNeXt-Tiny` 为 `-0.0071 OA`，因此这条线更适合作为补充负结果，而不是正文主卖点
 - `C&G` 模板目前能成功出 PDF，但仍有少量非阻塞版式 warning
+- 当前 warning 已复核为模板级非阻塞噪声；仅在极致版面优化时再处理
 - 当前作者与联系信息是从旧投稿资产复用的默认口径；如果作者列表有变动，需要在正式投稿前核对
 - 公开仓库已经上线，但仍需要确认是否另外发布 reviewer-safe zip 作为补充材料
 - 依据 `Computers & Geosciences` 官方 Guide for Authors，正文需要包含可下载代码的仓库链接并标明开源许可；当前本地源码已具备此条件，但正式投稿前仍应复查仓库首页与 README 展示效果

@@ -1,6 +1,6 @@
 # C&G Pre-Submission Checklist
 
-更新时间：`2026-03-22`
+更新时间：`2026-03-23`
 
 ## Manuscript
 
@@ -30,4 +30,4 @@
 - [x] Final public repository created and real URL filled
 - [x] Open-source license text shown in repository
 - [ ] Decide whether reviewer-safe access is via zip packet or private repository
-- [ ] Final pass on minor LaTeX warning noise if needed
+- [x] Final pass on minor LaTeX warning noise completed (current warnings are non-blocking CAS template/layout noise)

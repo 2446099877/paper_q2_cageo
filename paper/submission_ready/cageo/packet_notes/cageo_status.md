@@ -35,7 +35,8 @@
 - 第二篇本地 guardrail 测试已扩展到：
   - reviewer-safe code release wording
   - stale template wording cleanup
-  - 当前 `11` 个测试全部通过
+  - real GitHub repository URL injection
+  - 当前 `14` 个测试全部通过
 - 独立工作区内已完成一条新实验扩展：
   - `AID low20 + DINOv2-small + adapter_ft2` 三 seed `0.9262 ± 0.0020`
 - 摘要、引言、结论已完成一轮 `geocomputing / reproducibility` 口径强化
