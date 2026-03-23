@@ -26,11 +26,30 @@ class CageoReleaseTests(unittest.TestCase):
             "cageo_cover_letter_draft.md",
             "cageo_highlights_draft.md",
             "cageo_official_notes_2026-03-22.md",
+            "cageo_official_scope_check_2026-03-23.md",
             "cageo_pre_submission_checklist.md",
             "cageo_status.md",
         ]
         missing = [name for name in required if not (notes_dir / name).exists()]
         self.assertEqual(missing, [], msg=f"Missing packet notes: {missing}")
+
+    def test_submission_packet_contains_support_docs(self) -> None:
+        notes_dir = ROOT / "paper" / "submission_ready" / "cageo" / "packet_notes"
+        required = [
+            "cageo_official_scope_check_2026-03-23.md",
+            "reviewer_reproduction_quickstart.md",
+            "results_snapshot.md",
+            "final_submission_freeze_2026-03-23.md",
+        ]
+        missing = [name for name in required if not (notes_dir / name).exists()]
+        self.assertEqual(missing, [], msg=f"Missing packet support docs: {missing}")
+
+    def test_submission_packet_manifest_exists(self) -> None:
+        manifest = ROOT / "paper" / "submission_ready" / "cageo" / "packet_manifest_sha256.txt"
+        self.assertTrue(manifest.exists())
+        text = manifest.read_text(encoding="utf-8")
+        self.assertIn("manuscript.tex", text)
+        self.assertIn("packet_notes/cageo_status.md", text)
 
     def test_submission_pdf_exists(self) -> None:
         self.assertTrue((ROOT / "paper" / "submission_ready" / "cageo" / "manuscript.pdf").exists())

@@ -8,7 +8,8 @@ This directory organizes the current `Computers & Geosciences` submission materi
 - `references.bib`: bibliography used by the manuscript
 - `figures/`: figure assets referenced by the manuscript
 - `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst`: template support files
-- `packet_notes/`: official notes, cover letter draft, and highlights draft
+- `packet_notes/`: official notes, review quickstart, scope-check note, and support drafts
+- `packet_manifest_sha256.txt`: integrity manifest for the packet files
 
 ## Notes
 
@@ -20,3 +21,5 @@ This directory organizes the current `Computers & Geosciences` submission materi
   `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\compile_cageo_pdf.py`
 - Placeholder readiness check:
   `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\check_cageo_packet_readiness.py`
+- Full sequential validation:
+  `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\validate_cageo_submission.py`

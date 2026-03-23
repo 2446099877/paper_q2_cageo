@@ -49,7 +49,7 @@
 - 已创建投稿前冻结快照：
   - [final_submission_freeze_2026-03-23.md](final_submission_freeze_2026-03-23.md)
 - 已按官方最新期刊口径完成一轮 scope 对齐核对：
-  - [cageo_official_scope_check_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/cageo_official_scope_check_2026-03-23.md)
+  - [cageo_official_scope_check_2026-03-23.md](cageo_official_scope_check_2026-03-23.md)
 
 ## Current Positioning
 
@@ -86,3 +86,5 @@
   - `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\compile_cageo_pdf.py`
 - 仅检查 `C&G` 提交包占位符：
   - `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\check_cageo_packet_readiness.py`
+- 串行验证 `C&G` 提交包：
+  - `D:\python311\python.exe D:\codex\treatise\paper_q2_cageo\scripts\validate_cageo_submission.py`

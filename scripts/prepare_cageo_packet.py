@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import shutil
 import subprocess
 import sys
@@ -52,7 +53,8 @@ This directory organizes the current `Computers & Geosciences` submission materi
 - `references.bib`: bibliography used by the manuscript
 - `figures/`: figure assets referenced by the manuscript
 - `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst`: template support files
-- `packet_notes/`: official notes, cover letter draft, and highlights draft
+- `packet_notes/`: official notes, review quickstart, scope-check note, and support drafts
+- `packet_manifest_sha256.txt`: integrity manifest for the packet files
 
 ## Notes
 
@@ -64,8 +66,24 @@ This directory organizes the current `Computers & Geosciences` submission materi
   `D:\\python311\\python.exe D:\\codex\\treatise\\paper_q2_cageo\\scripts\\compile_cageo_pdf.py`
 - Placeholder readiness check:
   `D:\\python311\\python.exe D:\\codex\\treatise\\paper_q2_cageo\\scripts\\check_cageo_packet_readiness.py`
+- Full sequential validation:
+  `D:\\python311\\python.exe D:\\codex\\treatise\\paper_q2_cageo\\scripts\\validate_cageo_submission.py`
 """
     (packet_dir / "README.md").write_text(readme, encoding="utf-8")
+
+
+def write_packet_manifest(packet_dir: Path) -> None:
+    lines = ["# SHA256 manifest for the C&G submission packet", ""]
+    for path in sorted(packet_dir.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(packet_dir).as_posix()
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        lines.append(f"{digest}  {relative}")
+    (packet_dir / "packet_manifest_sha256.txt").write_text(
+        "\n".join(lines) + "\n",
+        encoding="utf-8",
+    )
 
 
 def main() -> None:
@@ -94,6 +112,7 @@ def main() -> None:
     notes_dir.mkdir(parents=True, exist_ok=True)
     for filename in [
         "cageo_official_notes_2026-03-22.md",
+        "cageo_official_scope_check_2026-03-23.md",
         "cageo_cover_letter_draft.md",
         "cageo_highlights_draft.md",
         "cageo_authorship_statement.md",
@@ -103,8 +122,14 @@ def main() -> None:
         "final_submission_freeze_2026-03-23.md",
     ]:
         shutil.copy2(ROOT / "docs" / "submission_packets" / filename, notes_dir / filename)
+    for filename in [
+        "reviewer_reproduction_quickstart.md",
+        "results_snapshot.md",
+    ]:
+        shutil.copy2(ROOT / "docs" / filename, notes_dir / filename)
 
     write_packet_readme(packet_dir)
+    write_packet_manifest(packet_dir)
     print(f"prepared C&G submission packet under {packet_dir}")
 
 
