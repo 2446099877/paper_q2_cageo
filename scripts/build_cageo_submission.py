@@ -134,11 +134,11 @@ School of Cybersecurity, Xi'an Polytechnic University\\\\
 \\end{{coverletter}}
 
 \\begin{{highlights}}
-\\item Fixed public split manifests and scripted multi-seed aggregation support reproducible low-shot remote sensing evaluation.
-\\item The workflow yields a substantial AID improvement and stable cross-benchmark evidence under identical seed-controlled splits.
-\\item Partial finetuning is the main gain source under the evaluated scarce-label protocol.
-\\item The workflow package includes rebuildable tables, figures, manifests, and auditable experiment records.
-\\item Final training remains feasible on a single 8 GB GPU with only about 7.5M trainable parameters.
+\\item Public split manifests support reproducible low-shot scene classification.
+\\item Scripted multi-seed aggregation reduces reporting noise across benchmarks.
+\\item Workflow assets rebuild tables, figures, and auditable experiment records.
+\\item Partial finetuning drives most gains under the scarce-label protocol.
+\\item Training fits on one 8 GB GPU with about 7.5M trainable parameters.
 \\end{{highlights}}
 
 \\begin{{keywords}}

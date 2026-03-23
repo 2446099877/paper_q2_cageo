@@ -42,6 +42,22 @@ def copy_tree(src: Path, dst: Path) -> None:
     shutil.copytree(src, dst)
 
 
+def extract_markdown_bullets(path: Path) -> list[str]:
+    bullets: list[str] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if stripped.startswith("- "):
+            bullets.append(stripped[2:].strip())
+    return bullets
+
+
+def write_highlights_upload_file(packet_dir: Path) -> None:
+    draft = ROOT / "docs" / "submission_packets" / "cageo_highlights_draft.md"
+    bullets = extract_markdown_bullets(draft)
+    text = "\n".join(f"- {bullet}" for bullet in bullets) + "\n"
+    (packet_dir / "highlights.txt").write_text(text, encoding="utf-8")
+
+
 def write_packet_readme(packet_dir: Path) -> None:
     readme = """# Computers & Geosciences Submission Packet
 
@@ -50,6 +66,7 @@ This directory organizes the current `Computers & Geosciences` submission materi
 ## Main Files
 
 - `manuscript.tex`: single-file Elsevier CAS-style manuscript
+- `highlights.txt`: ready-to-upload highlights file
 - `references.bib`: bibliography used by the manuscript
 - `figures/`: figure assets referenced by the manuscript
 - `cas-sc.cls`, `cas-common.sty`, `cas-model2-names.bst`: template support files
@@ -62,6 +79,8 @@ This directory organizes the current `Computers & Geosciences` submission materi
 - The current packet already passes the local placeholder scan.
 - Before final submission, verify that the current single-author metadata is still correct and that the repository landing page remains publicly accessible.
 - Raw datasets are not redistributed in this packet; reviewers should obtain AID and NWPU-RESISC45 from their original public sources and then use the included manifests and scripts for reproduction.
+- `highlights.txt` is synchronized from the maintained highlights draft and is ready for Editorial Manager upload.
+- `packet_manifest_sha256.txt` can be retained internally to verify the integrity of archived packet files after zipping or transfer.
 - One-click rebuild + compile script:
   `D:\\python311\\python.exe D:\\codex\\treatise\\paper_q2_cageo\\scripts\\compile_cageo_pdf.py`
 - Placeholder readiness check:
@@ -113,6 +132,8 @@ def main() -> None:
     for filename in [
         "cageo_official_notes_2026-03-22.md",
         "cageo_official_scope_check_2026-03-23.md",
+        "cageo_editorial_manager_runbook_2026-03-23.md",
+        "cageo_generative_ai_declaration_draft_2026-03-23.md",
         "cageo_cover_letter_draft.md",
         "cageo_highlights_draft.md",
         "cageo_authorship_statement.md",
@@ -128,6 +149,7 @@ def main() -> None:
     ]:
         shutil.copy2(ROOT / "docs" / filename, notes_dir / filename)
 
+    write_highlights_upload_file(packet_dir)
     write_packet_readme(packet_dir)
     write_packet_manifest(packet_dir)
     print(f"prepared C&G submission packet under {packet_dir}")

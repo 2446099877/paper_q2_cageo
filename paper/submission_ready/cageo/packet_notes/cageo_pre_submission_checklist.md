@@ -9,8 +9,11 @@
 - [x] Code availability section present
 - [x] Double spacing and line numbering enabled for submission PDF
 - [x] Highlights present
+- [x] Highlights file generated and each bullet kept within the `85`-character limit
 - [x] Cover letter text prepared
 - [x] Authorship statement prepared
+- [x] Generative AI submission declaration draft prepared
+- [x] Editorial Manager upload runbook prepared
 - [x] Local placeholder scan passes
 - [x] Reviewer-safe code packet generated
 - [x] Local C&G asset tests pass
@@ -30,6 +33,7 @@
 - [x] Confirm funding statement (`no external funding` statement is present in manuscript)
 - [x] Final public repository created and real URL filled
 - [x] Open-source license text shown in repository
+- [x] Main manuscript remains within the `Research/Application` word-count safety range
 - [x] Decide reviewer-safe access mode (`cageo_reviewer_code_packet.zip` as supplementary reviewer material)
 - [x] Final pass on minor LaTeX warning noise completed (current warnings are non-blocking CAS template/layout noise)
 - [x] Freeze snapshot created (`final_submission_freeze_2026-03-23.md`)

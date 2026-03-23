@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import unittest
 from pathlib import Path
 
@@ -24,6 +25,9 @@ class CageoReleaseTests(unittest.TestCase):
         required = [
             "cageo_authorship_statement.md",
             "cageo_cover_letter_draft.md",
+            "cageo_editorial_manager_runbook_2026-03-23.md",
+            "cageo_fill_once_form.md",
+            "cageo_generative_ai_declaration_draft_2026-03-23.md",
             "cageo_highlights_draft.md",
             "cageo_official_notes_2026-03-22.md",
             "cageo_official_scope_check_2026-03-23.md",
@@ -36,6 +40,9 @@ class CageoReleaseTests(unittest.TestCase):
     def test_submission_packet_contains_support_docs(self) -> None:
         notes_dir = ROOT / "paper" / "submission_ready" / "cageo" / "packet_notes"
         required = [
+            "cageo_editorial_manager_runbook_2026-03-23.md",
+            "cageo_fill_once_form.md",
+            "cageo_generative_ai_declaration_draft_2026-03-23.md",
             "cageo_official_scope_check_2026-03-23.md",
             "reviewer_reproduction_quickstart.md",
             "results_snapshot.md",
@@ -48,11 +55,51 @@ class CageoReleaseTests(unittest.TestCase):
         manifest = ROOT / "paper" / "submission_ready" / "cageo" / "packet_manifest_sha256.txt"
         self.assertTrue(manifest.exists())
         text = manifest.read_text(encoding="utf-8")
+        self.assertIn("highlights.txt", text)
         self.assertIn("manuscript.tex", text)
         self.assertIn("packet_notes/cageo_status.md", text)
 
     def test_submission_pdf_exists(self) -> None:
         self.assertTrue((ROOT / "paper" / "submission_ready" / "cageo" / "manuscript.pdf").exists())
+
+    def test_highlights_are_submission_ready(self) -> None:
+        draft_path = ROOT / "docs" / "submission_packets" / "cageo_highlights_draft.md"
+        draft_highlights = [
+            " ".join(line.strip()[2:].split())
+            for line in draft_path.read_text(encoding="utf-8").splitlines()
+            if line.strip().startswith("- ")
+        ]
+        self.assertGreaterEqual(len(draft_highlights), 3)
+        self.assertLessEqual(len(draft_highlights), 5)
+        for item in draft_highlights:
+            self.assertLessEqual(
+                len(item),
+                85,
+                msg=f"Highlight exceeds 85 characters: {item}",
+            )
+
+        manuscript_path = ROOT / "paper" / "submission_ready" / "cageo" / "manuscript.tex"
+        manuscript = manuscript_path.read_text(encoding="utf-8")
+        match = re.search(
+            r"\\begin\{highlights\}(.*?)\\end\{highlights\}",
+            manuscript,
+            flags=re.S,
+        )
+        self.assertIsNotNone(match, msg="Generated manuscript is missing highlights block")
+        manuscript_highlights = [
+            " ".join(item.split())
+            for item in re.findall(r"\\item\s+([^\n]+)", match.group(1))
+        ]
+        self.assertEqual(manuscript_highlights, draft_highlights)
+
+        upload_path = ROOT / "paper" / "submission_ready" / "cageo" / "highlights.txt"
+        self.assertTrue(upload_path.exists())
+        upload_highlights = [
+            " ".join(line.strip()[2:].split())
+            for line in upload_path.read_text(encoding="utf-8").splitlines()
+            if line.strip().startswith("- ")
+        ]
+        self.assertEqual(upload_highlights, draft_highlights)
 
     def test_no_stale_springer_wording_remains(self) -> None:
         checked_files = [

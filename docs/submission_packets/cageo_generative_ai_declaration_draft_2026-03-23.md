@@ -1,0 +1,13 @@
+# C&G Generative AI Declaration Draft
+
+更新时间：`2026-03-23`
+
+## 建议提交文本
+
+During the preparation of this manuscript, the authors used OpenAI GPT-5-based tools to assist with language polishing, draft restructuring, code refactoring support, and submission-material preparation. All experiment design, data processing, result verification, scientific interpretation, and final manuscript decisions were reviewed and approved by the human author(s), who take full responsibility for the submitted work.
+
+## 当前边界说明
+
+- 未将 AI 工具列为作者
+- 未直接采用未经人工核验的实验结果或科学结论
+- 所有最终代码、图表、表格和投稿文本均经过人工复核后才保留

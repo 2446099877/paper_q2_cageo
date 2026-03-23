@@ -47,6 +47,13 @@
 - `related_work`、`experiments`、cover letter、highlights 已完成第二轮 `C&G` 编辑口径收束
 - `NWPU` 小增益的表述已收敛为更保守的跨数据集结论
 - reviewer quickstart、results snapshot、appendix 已完成第三轮一致性收口
+- `Highlights` 已压缩到官方 `<= 85` characters 限制，并生成单独上传文件：
+  - [highlights.txt](/D:/codex/treatise/paper_q2_cageo/paper/submission_ready/cageo/highlights.txt)
+- `Editorial Manager` 上传 runbook 已补齐：
+  - [cageo_editorial_manager_runbook_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/cageo_editorial_manager_runbook_2026-03-23.md)
+- `Generative AI` 投稿声明草稿已补齐：
+  - [cageo_generative_ai_declaration_draft_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/cageo_generative_ai_declaration_draft_2026-03-23.md)
+- 当前主稿粗略词数约 `4866`，仍位于官方 `Research/Application` 投稿字数安全区间内
 - 已创建投稿前冻结快照：
   - [final_submission_freeze_2026-03-23.md](final_submission_freeze_2026-03-23.md)
 - 已按官方最新期刊口径完成一轮 scope 对齐核对：
