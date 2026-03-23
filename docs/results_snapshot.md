@@ -1,6 +1,6 @@
 # Results Snapshot for C&G
 
-更新时间：`2026-03-22`
+更新时间：`2026-03-23`
 
 ## 主线结果
 
@@ -50,5 +50,5 @@
 
 1. `DINOv2-Base + selective finetuning` 是当前主提升来源。
 2. residual adapter 的价值更接近稳定性增强，而不是主要均值来源。
-3. center regularization 在当前双数据集三 seed 口径下是值得保留的。
+3. center regularization 在当前双数据集三 seed 口径下主要带来均值收益，因此仍值得保留。
 4. 第二篇正文应继续坚持 `reproducible workflow` 叙事，而不是扩展成 backbone capacity 比较论文。

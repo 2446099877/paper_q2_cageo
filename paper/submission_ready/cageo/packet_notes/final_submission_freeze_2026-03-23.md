@@ -18,7 +18,11 @@
 
 ## Verification Snapshot
 
-- 最近一次已记录提交：`0f5cc4a` (`finalize-cageo-validation-and-status-sync`)
+- 已验证的关键里程碑提交：
+  - `0f5cc4a` (`finalize-cageo-validation-and-status-sync`)
+  - `3e885bd` (`add-final-submission-freeze-snapshot`)
+  - `11e42a9` (`fix-packet-freeze-copy-and-link-stability`)
+  - `956069a` (`refine-code-availability-wording-and-rebuild-packet`)
 - 单元测试：`python -m unittest discover -s tests`（`14` 项通过）
 - 提交包占位符扫描：`outstanding_placeholders: none`
 - PDF 产物：
@@ -40,4 +44,4 @@
 
 ## Rollback Hint
 
-- 若需回退到冻结前，优先使用 git 按提交回退到 `0f5cc4a` 并重新生成投稿包，不要跨论文目录拷贝文件。
+- 若需回退到本轮冻结前，优先按上述里程碑提交选择回退点并重新生成投稿包，不要跨论文目录拷贝文件。

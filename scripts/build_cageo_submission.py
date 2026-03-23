@@ -96,10 +96,10 @@ def build_document() -> str:
 \\let\\WriteBookmarks\\relax
 \\def\\floatpagepagefraction{{1}}
 \\def\\textpagefraction{{.001}}
-\\shorttitle{{Reproducible DINOv2 Adaptation for Scarce-Label RSSC}}
+\\shorttitle{{Reproducible DINOv2 Workflow for Scarce-Label RSSC}}
 \\shortauthors{{Hou}}
 
-\\title[mode = title]{{Reproducible Selective Adaptation of DINOv2 for Scarce-Label Remote Sensing Scene Classification}}
+\\title[mode = title]{{A Reproducible DINOv2 Workflow for Scarce-Label Remote Sensing Scene Classification}}
 
 \\author[1]{{Chao Hou}}
 \\credit{{Conceptualization, methodology, software, validation, visualization, writing - original draft.}}
@@ -111,44 +111,32 @@ def build_document() -> str:
 \\end{{abstract}}
 
 \\begin{{coverletter}}
+\\raggedright
 Dear Editors,
-\\newline
 
-Please consider our manuscript ``Reproducible Selective Adaptation of DINOv2 for Scarce-Label Remote Sensing Scene Classification'' for publication in Computers \\& Geosciences.
-\\newline
+Please consider our manuscript ``A Reproducible DINOv2 Workflow for Scarce-Label Remote Sensing Scene Classification'' for publication in Computers \\& Geosciences.
 
-This manuscript addresses a practical geocomputing problem: scarce-label remote sensing scene classification under public-data, fixed-protocol evaluation. Rather than proposing another scene-classification architecture, we contribute a reproducible computational workflow that couples DINOv2-Base selective adaptation with persistent split manifests, scriptable multi-seed aggregation, and manuscript-rebuild assets.
-\\newline
+This manuscript addresses a practical geocomputing problem: scarce-label remote sensing scene classification under public-data, fixed-protocol evaluation. Rather than proposing another scene-classification architecture, we contribute a reproducible geocomputing workflow that couples DINOv2-Base selective adaptation with persistent split manifests, scriptable multi-seed aggregation, and manuscript-rebuild assets.
 
-We believe the work fits Computers \\& Geosciences for three reasons. First, it addresses geospatial image analysis on public remote sensing benchmarks. Second, its central contribution is a reusable computational workflow rather than architecture-only benchmarking. Third, the code, configuration, and reproduction assets are publicly available under the MIT License (see the Code availability section for the repository link), with a reviewer-safe archive retained for inspection convenience.
-\\newline
+We believe the work fits Computers \\& Geosciences for three reasons. First, it targets geospatial image analysis on public remote sensing benchmarks under an explicitly documented protocol. Second, its central contribution is a reusable and auditable computational workflow rather than architecture-only benchmarking. Third, the code, configuration, manifests, and reproduction assets are publicly available under the MIT License, with a reviewer-safe archive retained for inspection convenience.
 
-Under one fixed class-balanced protocol, we observe a strong overall-accuracy increase on AID from 0.9179 to 0.9413 and a modest positive increase on NWPU-RESISC45 from 0.8721 to 0.8790, presented as reproducible workflow outcomes rather than universal performance claims. Same-backbone ablations show that selective finetuning provides the primary gain, while the adapter mainly improves stability and the feature-center regularizer improves consistency.
-\\newline
+Under one fixed class-balanced protocol, the workflow improves mean overall accuracy on AID from 0.9179 to 0.9413 and yields a smaller positive shift on NWPU-RESISC45 from 0.8721 to 0.8790. We present these results as matched-protocol workflow evidence rather than as universal performance claims. Same-backbone ablations show that selective finetuning provides the primary gain, while the adapter mainly improves stability and the feature-center regularizer improves mean performance under the current protocol.
 
-This manuscript has not been published previously and is not under consideration elsewhere.
-\\newline
+To support editorial and reviewer inspection, we provide a public repository and a reviewer-safe code packet containing split manifests, experiment scripts, configurations, source modules, generated manuscript tables, and reproduction notes. The manuscript's Code availability section points directly to the live repository.
 
-The author has approved the manuscript and agrees with its submission to Computers \\& Geosciences.
-\\newline
+This manuscript has not been published previously and is not under consideration elsewhere. The author has approved the manuscript and agrees with its submission to Computers \\& Geosciences.
 
-Sincerely,
-\\newline
-
-Chao Hou
-\\newline
-
-School of Cybersecurity, Xi'an Polytechnic University
-\\newline
-
+Sincerely,\\\\
+Chao Hou\\\\
+School of Cybersecurity, Xi'an Polytechnic University\\\\
 2446099877@qq.com
 \\end{{coverletter}}
 
 \\begin{{highlights}}
 \\item Fixed public split manifests and scripted multi-seed aggregation support reproducible low-shot remote sensing evaluation.
-\\item The workflow delivers strong gains on AID and modest gains on NWPU under identical seed-controlled splits.
+\\item The workflow yields a substantial AID improvement and stable cross-benchmark evidence under identical seed-controlled splits.
 \\item Partial finetuning is the main gain source under the evaluated scarce-label protocol.
-\\item The workflow package includes rebuildable tables, figures, and reviewer-ready reproduction assets.
+\\item The workflow package includes rebuildable tables, figures, manifests, and auditable experiment records.
 \\item Final training remains feasible on a single 8 GB GPU with only about 7.5M trainable parameters.
 \\end{{highlights}}
 
@@ -188,13 +176,17 @@ Program language: Python 3.11.
 
 Software required: PyTorch environment defined by the project requirements file.
 
-Program size: the release package contains the source modules, experiment scripts, configuration files, and manuscript-build assets required to reproduce the reported workflow, excluding raw datasets and trained checkpoints.
+Program size: the release package contains source modules, experiment scripts, configuration files, and manuscript-build assets required to reproduce the reported workflow.
+
+Redistributed assets exclude raw datasets and trained checkpoints.
 
 The source code, experiment configurations, split-generation logic, aggregation scripts, and manuscript-table rebuild scripts are publicly available in the project GitHub repository.
 
 Repository URL: \\url{{{PUBLIC_REPO_URL}}}.
 
-A reviewer-safe archive containing the source modules, manifests, configurations, and manuscript-build assets is also retained for inspection convenience. The public repository is released under the MIT License.
+Data availability: AID and NWPU-RESISC45 are public datasets cited in the manuscript. The repository provides split manifests and reproduction guidance, but does not redistribute raw images; users should obtain the original data from the official dataset sources under their respective terms.
+
+A reviewer-safe archive containing the same source modules, manifests, configurations, and manuscript-build assets is retained for inspection convenience. The public repository is released under the MIT License.
 
 {appendix}
 

@@ -17,10 +17,10 @@
 \let\WriteBookmarks\relax
 \def\floatpagepagefraction{1}
 \def\textpagefraction{.001}
-\shorttitle{Reproducible DINOv2 Adaptation for Scarce-Label RSSC}
+\shorttitle{Reproducible DINOv2 Workflow for Scarce-Label RSSC}
 \shortauthors{Hou}
 
-\title[mode = title]{Reproducible Selective Adaptation of DINOv2 for Scarce-Label Remote Sensing Scene Classification}
+\title[mode = title]{A Reproducible DINOv2 Workflow for Scarce-Label Remote Sensing Scene Classification}
 
 \author[1]{Chao Hou}
 \credit{Conceptualization, methodology, software, validation, visualization, writing - original draft.}
@@ -28,48 +28,36 @@
 \address[1]{School of Cybersecurity, Xi'an Polytechnic University, Xi'an, Shaanxi, China}
 
 \begin{abstract}
-Scarce labels remain a practical bottleneck in geospatial image analysis, yet many remote sensing scene classification studies still rely on protocol-specific settings that are hard to reproduce or compare fairly. Rather than introducing another remote-sensing-specific architecture, we present a reproducible adaptive-transfer workflow for scarce-label scene classification built on \textbf{DINOv2-Base}, fixed class-balanced split manifests, and scripted multi-seed evaluation. The model freezes most pretrained parameters, selectively unfreezes only the last transformer block and final normalization, inserts a residual feature adapter, and applies momentum-updated feature-center regularization. Experiments on AID and NWPU-RESISC45 follow a fixed protocol with 20 training images and 10 validation images per class, and all main comparisons are reported as three-seed averages regenerated from the same experiment outputs. Against a fair ConvNeXt-Tiny baseline under identical manifests, the workflow improves mean overall accuracy from 0.9179 to 0.9413 on AID and yields a smaller but still positive increase from 0.8721 to 0.8790 on NWPU-RESISC45. Same-backbone ablations show that selective finetuning provides most of the mean gain, while the adapter mainly reduces seed variance and the center regularizer improves performance consistency. Although the full backbone is not lightweight in total inference cost, only about 7.5 million parameters are trainable and the final setup remains feasible on an 8 GB GPU. The resulting contribution is a practical geocomputing workflow centered on public data, fixed manifests, and rebuildable evidence rather than on architectural novelty alone.
+Scarce labels remain a practical bottleneck in geospatial image analysis, yet many remote sensing scene classification studies still rely on protocol-specific settings that are hard to reproduce or compare fairly. Rather than introducing another remote-sensing-specific architecture, we present a reproducible adaptive-transfer workflow for scarce-label scene classification built on \textbf{DINOv2-Base}, fixed class-balanced split manifests, and scripted multi-seed evaluation. The model freezes most pretrained parameters, selectively unfreezes only the last transformer block and final normalization, inserts a residual feature adapter, and applies momentum-updated feature-center regularization. Experiments on AID and NWPU-RESISC45 follow a fixed protocol with 20 training images and 10 validation images per class, and all main comparisons are reported as three-seed averages regenerated from the same experiment outputs. Against a matched-split ConvNeXt-Tiny reference under identical data partitions, the workflow improves mean overall accuracy from 0.9179 to 0.9413 on AID and yields a smaller but still positive increase from 0.8721 to 0.8790 on NWPU-RESISC45. Same-backbone ablations show that selective finetuning provides most of the mean gain, while the adapter mainly reduces seed variance and the feature-center term improves mean performance on both datasets. Although the full backbone is not lightweight in total inference cost, only about 7.5 million parameters are trainable and the final setup remains feasible on an 8 GB GPU. The resulting contribution is a practical geocomputing workflow centered on public data, fixed manifests, and rebuildable evidence rather than on architectural novelty alone.
 \end{abstract}
 
 \begin{coverletter}
+\raggedright
 Dear Editors,
-\newline
 
-Please consider our manuscript ``Reproducible Selective Adaptation of DINOv2 for Scarce-Label Remote Sensing Scene Classification'' for publication in Computers \& Geosciences.
-\newline
+Please consider our manuscript ``A Reproducible DINOv2 Workflow for Scarce-Label Remote Sensing Scene Classification'' for publication in Computers \& Geosciences.
 
-This manuscript addresses a practical geocomputing problem: scarce-label remote sensing scene classification under public-data, fixed-protocol evaluation. Rather than proposing another scene-classification architecture, we contribute a reproducible computational workflow that couples DINOv2-Base selective adaptation with persistent split manifests, scriptable multi-seed aggregation, and manuscript-rebuild assets.
-\newline
+This manuscript addresses a practical geocomputing problem: scarce-label remote sensing scene classification under public-data, fixed-protocol evaluation. Rather than proposing another scene-classification architecture, we contribute a reproducible geocomputing workflow that couples DINOv2-Base selective adaptation with persistent split manifests, scriptable multi-seed aggregation, and manuscript-rebuild assets.
 
-We believe the work fits Computers \& Geosciences for three reasons. First, it addresses geospatial image analysis on public remote sensing benchmarks. Second, its central contribution is a reusable computational workflow rather than architecture-only benchmarking. Third, the code, configuration, and reproduction assets are publicly available under the MIT License (see the Code availability section for the repository link), with a reviewer-safe archive retained for inspection convenience.
-\newline
+We believe the work fits Computers \& Geosciences for three reasons. First, it targets geospatial image analysis on public remote sensing benchmarks under an explicitly documented protocol. Second, its central contribution is a reusable and auditable computational workflow rather than architecture-only benchmarking. Third, the code, configuration, manifests, and reproduction assets are publicly available under the MIT License, with a reviewer-safe archive retained for inspection convenience.
 
-Under one fixed class-balanced protocol, we observe a strong overall-accuracy increase on AID from 0.9179 to 0.9413 and a modest positive increase on NWPU-RESISC45 from 0.8721 to 0.8790, presented as reproducible workflow outcomes rather than universal performance claims. Same-backbone ablations show that selective finetuning provides the primary gain, while the adapter mainly improves stability and the feature-center regularizer improves consistency.
-\newline
+Under one fixed class-balanced protocol, the workflow improves mean overall accuracy on AID from 0.9179 to 0.9413 and yields a smaller positive shift on NWPU-RESISC45 from 0.8721 to 0.8790. We present these results as matched-protocol workflow evidence rather than as universal performance claims. Same-backbone ablations show that selective finetuning provides the primary gain, while the adapter mainly improves stability and the feature-center regularizer improves mean performance under the current protocol.
 
-This manuscript has not been published previously and is not under consideration elsewhere.
-\newline
+To support editorial and reviewer inspection, we provide a public repository and a reviewer-safe code packet containing split manifests, experiment scripts, configurations, source modules, generated manuscript tables, and reproduction notes. The manuscript's Code availability section points directly to the live repository.
 
-The author has approved the manuscript and agrees with its submission to Computers \& Geosciences.
-\newline
+This manuscript has not been published previously and is not under consideration elsewhere. The author has approved the manuscript and agrees with its submission to Computers \& Geosciences.
 
-Sincerely,
-\newline
-
-Chao Hou
-\newline
-
-School of Cybersecurity, Xi'an Polytechnic University
-\newline
-
+Sincerely,\\
+Chao Hou\\
+School of Cybersecurity, Xi'an Polytechnic University\\
 2446099877@qq.com
 \end{coverletter}
 
 \begin{highlights}
 \item Fixed public split manifests and scripted multi-seed aggregation support reproducible low-shot remote sensing evaluation.
-\item The workflow delivers strong gains on AID and modest gains on NWPU under identical seed-controlled splits.
+\item The workflow yields a substantial AID improvement and stable cross-benchmark evidence under identical seed-controlled splits.
 \item Partial finetuning is the main gain source under the evaluated scarce-label protocol.
-\item The workflow package includes rebuildable tables, figures, and reviewer-ready reproduction assets.
+\item The workflow package includes rebuildable tables, figures, manifests, and auditable experiment records.
 \item Final training remains feasible on a single 8 GB GPU with only about 7.5M trainable parameters.
 \end{highlights}
 
@@ -98,7 +86,7 @@ The contributions of this work are as follows:
   \item We present a reproducible scarce-label remote sensing workflow that combines DINOv2 transfer, selective finetuning, residual adaptation, and feature-center regularization under fixed public-data protocols.
   \item We establish seed-controlled class-balanced evaluation on AID and NWPU-RESISC45 with 20 training samples and 10 validation samples per class, and we report three-seed averages for all main comparisons.
   \item We expose the workflow as reusable geocomputing assets, including fixed manifests and scripted regeneration of aggregated tables and figures, so that results can be audited and extended from the same public inputs.
-  \item We provide same-backbone ablations showing that partial finetuning contributes most of the mean gain under the current protocol, while the adapter mainly improves stability and the center regularizer improves consistency.
+  \item We provide same-backbone ablations showing that partial finetuning contributes most of the mean gain under the current protocol, while the adapter mainly improves stability and the feature-center term mainly improves mean performance.
   \item We show that the final workflow remains feasible on a commodity 8 GB GPU, which makes large-backbone adaptation more accessible for researchers working under limited hardware budgets.
 \end{itemize}
 
@@ -368,9 +356,9 @@ To keep the interpretation protocol consistent across convolutional and token-ba
 \section{Conclusions}
 \label{sec:conclusion}
 
-This paper presents a reproducible selective-adaptation workflow for scarce-label remote sensing scene classification. Built on DINOv2-Base, the workflow combines selective finetuning, residual adapters, feature-center regularization, fixed split manifests, and scripted multi-seed reporting. Under the evaluated 20-shot protocol on AID and NWPU-RESISC45, it improves over a fair ConvNeXt-Tiny baseline in three-seed mean overall accuracy while remaining trainable on a single 8 GB GPU. The main contribution is therefore a rebuildable geocomputing recipe for public-data low-shot evaluation, not a new remote-sensing-specific architecture.
+This paper presents a reproducible selective-adaptation workflow for scarce-label remote sensing scene classification. Built on DINOv2-Base, the workflow combines selective finetuning, residual adapters, feature-center regularization, fixed split manifests, and scripted multi-seed reporting. Under the evaluated 20-shot protocol on AID and NWPU-RESISC45, it improves over a matched-split ConvNeXt-Tiny reference in three-seed mean overall accuracy while remaining trainable on a single 8 GB GPU. The main contribution is therefore a rebuildable geocomputing recipe for public-data low-shot evaluation, not a new remote-sensing-specific architecture.
 
-The current evidence suggests that selective backbone finetuning is the main source of mean improvement, whereas the residual adapter mainly improves stability and the feature-center term improves consistency. The resulting contribution is therefore not a claim of lightweight inference or universal superiority, but a practical geocomputing recipe that can be rebuilt, audited, and extended on public data and modest hardware.
+The current evidence suggests that selective backbone finetuning is the main source of mean improvement, whereas the residual adapter mainly improves stability and the feature-center term mainly improves mean performance under the current protocol. The resulting contribution is therefore not a claim of lightweight inference or universal superiority, but a practical geocomputing recipe that can be rebuilt, audited, and extended on public data and modest hardware.
 
 Several limitations remain. The gain on NWPU-RESISC45 is positive but modest, so the cross-dataset conclusion should be interpreted conservatively and read mainly as evidence that the workflow remains stable under a second public benchmark. The method is parameter-efficient in trainable subset rather than lightweight in total inference complexity. Finally, the current study covers two public datasets under a fixed 20-shot protocol; broader shot regimes and additional remote sensing domains would strengthen future validation. Even with these limits, the workflow provides a useful open baseline for scarce-label geospatial image analysis and a concrete starting point for follow-up geocomputing studies.
 
@@ -390,13 +378,17 @@ Program language: Python 3.11.
 
 Software required: PyTorch environment defined by the project requirements file.
 
-Program size: the release package contains the source modules, experiment scripts, configuration files, and manuscript-build assets required to reproduce the reported workflow, excluding raw datasets and trained checkpoints.
+Program size: the release package contains source modules, experiment scripts, configuration files, and manuscript-build assets required to reproduce the reported workflow.
+
+Redistributed assets exclude raw datasets and trained checkpoints.
 
 The source code, experiment configurations, split-generation logic, aggregation scripts, and manuscript-table rebuild scripts are publicly available in the project GitHub repository.
 
 Repository URL: \url{https://github.com/2446099877/paper_q2_cageo}.
 
-A reviewer-safe archive containing the source modules, manifests, configurations, and manuscript-build assets is also retained for inspection convenience. The public repository is released under the MIT License.
+Data availability: AID and NWPU-RESISC45 are public datasets cited in the manuscript. The repository provides split manifests and reproduction guidance, but does not redistribute raw images; users should obtain the original data from the official dataset sources under their respective terms.
+
+A reviewer-safe archive containing the same source modules, manifests, configurations, and manuscript-build assets is retained for inspection convenience. The public repository is released under the MIT License.
 
 \section{Seed-Wise OA Results}
 \label{sec:appendix_seedwise}
@@ -427,7 +419,7 @@ For transparency, Table~\ref{tab:seedwise_results} reports the per-seed OA value
 \section{Reproducibility Notes}
 \label{sec:appendix_reproducibility}
 
-All compared methods use seed-controlled manifests generated by class-wise shuffling under the same split rule: 20 training images and 10 validation images per class, with all remaining images used for testing. For a fixed seed, the same manifest is reused by every compared method, so the ConvNeXt baseline and all DINOv2 variants are evaluated on identical data partitions. The final release package will include the split-generation logic, model definitions, training loop, multi-seed aggregation utilities, and the scripts used to rebuild the manuscript tables.
+All compared methods use seed-controlled manifests generated by class-wise shuffling under the same split rule: 20 training images and 10 validation images per class, with all remaining images used for testing. For a fixed seed, the same manifest is reused by every compared method, so the ConvNeXt baseline and all DINOv2 variants are evaluated on identical data partitions. The public repository already includes the split-generation logic, model definitions, training loop, multi-seed aggregation utilities, and the scripts used to rebuild the manuscript tables.
 
 The final DINOv2 setting uses the configuration corresponding to the 20-shot protocol, partial finetuning of the last transformer block, adapter bottleneck dimension 256, and feature-center loss weight 0.02. The final ConvNeXt baseline uses the same seed protocol and early-stopping logic but a lighter backbone and larger batch size. No seed-specific hyperparameter changes are introduced after the protocol is fixed. The accompanying reproducibility package also retains the manuscript build script and the submission-readiness checker used to regenerate the final C\&G submission PDF.
 

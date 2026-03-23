@@ -57,8 +57,8 @@ D:\python311\python.exe scripts\refresh_paper_assets.py
 
 ## Expected Main Direction
 
-- `AID-low20`: proposed workflow should show a clear OA increase over the fair `ConvNeXt-Tiny` baseline, around `+0.023`
-- `NWPU-low20`: proposed workflow should show a modest positive OA shift over the fair `ConvNeXt-Tiny` baseline, around `+0.007`
+- `AID-low20`: proposed workflow should show a clear OA increase over the matched-split `ConvNeXt-Tiny` reference, around `+0.023`
+- `NWPU-low20`: proposed workflow should show a modest positive OA shift over the matched-split `ConvNeXt-Tiny` reference, around `+0.007`
 
 ## Main Artifacts
 
