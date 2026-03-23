@@ -48,6 +48,8 @@
 - reviewer quickstart、results snapshot、appendix 已完成第三轮一致性收口
 - 已创建投稿前冻结快照：
   - [final_submission_freeze_2026-03-23.md](final_submission_freeze_2026-03-23.md)
+- 已按官方最新期刊口径完成一轮 scope 对齐核对：
+  - [cageo_official_scope_check_2026-03-23.md](/D:/codex/treatise/paper_q2_cageo/docs/submission_packets/cageo_official_scope_check_2026-03-23.md)
 
 ## Current Positioning
 
